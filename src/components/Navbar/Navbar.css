@@ -1,0 +1,30 @@
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0px;
+    background-color: #2F80FF;
+}
+
+nav ul {
+    display: flex;
+    gap:30px;
+    justify-content: center;
+    align-items: center;
+}
+nav ul li img {
+    width: 150px;
+    height: 150px;
+}
+nav ul li {
+    list-style: none;
+
+    
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+}
