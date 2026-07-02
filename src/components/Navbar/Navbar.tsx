@@ -1,4 +1,5 @@
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 
 
 const Navbar: React.FC = () => {
@@ -6,14 +7,14 @@ const Navbar: React.FC = () => {
     <nav>
       <ul className="nav-section">
         <li><img src="/logo.png" alt="Logo" className="logo" /></li>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/crypto">Crypto Market</Link></li>
+        <li><Link to="/">Services</Link></li>
+        <li><Link to="/">Contact</Link></li>
       </ul>
       <ul className="nav-section">
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Sign Up</a></li>
+        <li><Link to="/login">Login</Link></li>
+        <li><Link to="/sign-up">Sign Up</Link></li>
       </ul>
     </nav>
   );

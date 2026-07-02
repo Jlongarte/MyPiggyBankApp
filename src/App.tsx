@@ -1,17 +1,19 @@
-import Navbar from "./components/Navbar/Navbar"
-import DashBoard from "../src/features/dashboard/DashBoard"
 
+import { Outlet } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
 
-function App() {
-  
-
+const App: React.FC = () => {
   return (
     <>
+      
       <Navbar />
-      <DashBoard />
-
+      
+      <main>
+        
+        <Outlet />
+      </main>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

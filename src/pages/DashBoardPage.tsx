@@ -1,7 +1,7 @@
 import { useState } from "react";
-import BalanceCard from "./components/BalanceCard";
-import TransactionList from "./components/TransactionList";
-import TransactionForm from "./components/TransactionForm";
+import BalanceCard from "../components/Dashboard/BalanceCard";
+import TransactionList from "../components/Dashboard/TransactionList";
+import TransactionForm from "../components/Dashboard/TransactionForm";
 
 // 1. Definimos una interfaz interna para saber qué estructura tiene una transacción en nuestra lista
 interface TransactionItem {
