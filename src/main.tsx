@@ -6,6 +6,9 @@ import App from './App'
 import DashBoard from '../src/pages/DashBoardPage'
 import CryptoMarketPage from '../src/pages/CryptoMarketPage'
 import './index.css' 
+import ServicesPage from './pages/ServicesPage'
+import Register from './pages/Register'
+import Login from './pages/Login'
 
 
 
@@ -21,6 +24,18 @@ const router = createBrowserRouter([
       {
         path: "crypto", 
         element: <CryptoMarketPage />
+      },
+      {
+        path: "services", 
+        element: <ServicesPage />
+      },
+      {
+        path: "register", 
+        element: <Register />
+      },
+      {
+        path: "login", 
+        element: <Login />
       }
     ]
   }

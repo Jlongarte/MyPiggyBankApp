@@ -9,12 +9,12 @@ const Navbar: React.FC = () => {
         <li><img src="/logo.png" alt="Logo" className="logo" /></li>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/crypto">Crypto Market</Link></li>
-        <li><Link to="/">Services</Link></li>
+        <li><Link to="/services">Services</Link></li>
         <li><Link to="/">Contact</Link></li>
       </ul>
       <ul className="nav-section">
         <li><Link to="/login">Login</Link></li>
-        <li><Link to="/sign-up">Sign Up</Link></li>
+        <li><Link to="/register">Sign Up</Link></li>
       </ul>
     </nav>
   );
