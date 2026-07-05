@@ -1,0 +1,1495 @@
+
+.home-scroll-container {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #ffffff;
+  margin: 0;
+}
+
+.scroll-track {
+  height: 200vh;
+  position: relative;
+}
+
+.sticky-viewport {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ================= CAPAS DE TEXTO ================= */
+.hero-text-layer {
+  position: absolute;
+  top: 15%;
+  left: 8%;
+  max-width: 480px;
+  z-index: 10;
+  color: #ffffff;
+}
+
+.hero-title {
+  font-size: 4.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 20px 0;
+  line-height: 1.05;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  opacity: 0.9;
+  margin-bottom: 32px;
+}
+
+.grid-text-layer {
+  position: absolute;
+  top: 8%;
+  text-align: center;
+  max-width: 700px;
+  z-index: 10;
+  color: #000000;
+  padding: 0 20px;
+}
+
+.grid-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px 0;
+  line-height: 1.1;
+}
+
+.grid-subtitle {
+  font-size: 1.05rem;
+  color: #545454;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.btn-download, .btn-action {
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-download {
+  background: #111111;
+}
+
+/* ================= CONTENEDOR DEL GRID GENERAL ================= */
+.cards-grid-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1060px;
+  height: 420px;
+  position: absolute;
+  bottom: 12%;
+  z-index: 5;
+}
+
+.side-card {
+  width: 320px;
+  height: 420px;
+  border-radius: 24px;
+  background-color: #ffffff;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+  border: 1px solid #f0f0f0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 24px;
+  box-sizing: border-box;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.left-card {
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=600');
+  background-size: cover;
+  color: white;
+}
+.right-card {
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600');
+  background-size: cover;
+  color: white;
+}
+
+.center-card-morph {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  transition: width 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
+              height 0.75s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-radius 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s ease;
+}
+
+.morph-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 60%), url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1200');
+  background-size: cover;
+  background-position: center 30%;
+  z-index: 1;
+}
+
+.morph-card-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.card-category {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-amount {
+  font-weight: 700;
+  margin: 8px 0;
+  letter-spacing: -0.02em;
+  transition: font-size 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-badge {
+  background: #ffffff;
+  color: #000000;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.card-footer-item {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #000000;
+  box-sizing: border-box;
+}
+
+.center-footer {
+  margin-top: auto; /* La empuja abajo del todo */
+  transition: opacity 0.3s ease;
+}
+
+.footer-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+.bizum { background-color: #5cd0b7; color: white; }
+.wallet { background-color: #e3f2fd; font-size: 1.1rem; }
+.bills { background-color: #ffebee; font-size: 1.1rem; }
+
+.footer-title {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.footer-date {
+  margin: 2px 0 0 0;
+  font-size: 0.75rem;
+  color: #767676;
+}
+.footer-value {
+  margin-left: auto;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.positive { color: #00875a; }
+.negative { color: #000000; }
+
+.next-content-block {
+  background: #ffffff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- ##### COMPONENTE SECURITY SECTION ######## --- */
+.revolut-security-section {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 140px 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.security-container {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.security-text-block {
+  flex: 1;
+  max-width: 460px;
+}
+
+.security-title {
+  font-size: 3.8rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin: 0 0 32px 0;
+}
+
+.security-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: #191919;
+  margin-bottom: 40px;
+}
+
+.btn-security-learn {
+  background-color: #191919;
+  color: #ffffff;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-security-learn:hover {
+  background-color: #000000;
+  transform: scale(1.02);
+}
+
+.security-visual-block {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.security-shield-wrapper {
+  will-change: transform;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.security-shield-img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.15));
+  animation: gentleFloat 6s ease-in-out infinite; /* Flotación constante autónoma */
+}
+
+@keyframes gentleFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@media (max-width: 868px) {
+  .security-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+  .security-text-block {
+    max-width: 100%;
+  }
+  .security-title {
+    font-size: 2.8rem;
+  }
+  .btn-security-learn {
+    margin: 0 auto;
+  }
+  .security-shield-img {
+    max-width: 260px;
+  }
+}
+
+/* --- ##### COMPONENTE SAVING TABS SECTION ######## --- */
+
+
+.savings-scroll-wrapper {
+  height: 180vh; 
+  position: relative;
+}
+
+.savings-sticky-viewport {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 90vh; /* Ocupa menos altura visual en la pantalla */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 4% 30px 4%; /* Padding más compacto */
+  box-sizing: border-box;
+}
+
+/* --- GALERÍA DE FONDOS --- */
+.savings-bg-gallery {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: #000;
+}
+
+.savings-bg-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.savings-bg-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom, 
+    rgba(0, 0, 0, 0.75) 0%, 
+    rgba(0, 0, 0, 0.2) 40%, 
+    rgba(0, 0, 0, 0.75) 100++%
+  );
+  z-index: 2;
+}
+
+.savings-bg-slide.active {
+  opacity: 1;
+}
+
+/* --- TEXTOS PRINCIPALES (FIJOS ARRIBA) --- */
+.savings-top-content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  color: #ffffff;
+  max-width: 720px;
+}
+
+.savings-title {
+  font-size: 3.2rem; /* Título un poco más pequeño y elegante */
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 12px 0;
+}
+
+.savings-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  max-width: 600px;
+  margin: 0 auto 8px auto;
+}
+
+.savings-disclaimer {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.btn-explore-savings {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn-explore-savings:hover {
+  transform: scale(1.02);
+}
+
+/* --- TARJETA CENTRAL EN GLASSMORPHISM --- */
+.savings-glass-card {
+  position: relative;
+  z-index: 5;
+  width: 290px;
+  height: 330px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4); /* Sombra proyectada por la propia tarjeta */
+}
+
+.glass-tag {
+  font-size: 0.75rem;
+  margin-top: 20px;
+}
+.glass-amount {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 4px 0;
+}
+
+.glass-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 14px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.glass-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 12px;
+}
+
+.glass-btn-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* --- TABS INFERIORES --- */
+.savings-tabs-selector {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 6px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-pill-btn {
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s;
+}
+
+.tab-pill-btn.active {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.tab-pill-btn:not(.active) {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .savings-title { font-size: 2.5rem; }
+  .savings-subtitle { font-size: 1rem; }
+  .savings-glass-card { width: 280px; height: 320px; }
+  .glass-amount { font-size: 2.5rem; }
+}
+
+/* --- ##### COMPONENTE SAVING TABS SECTION ######## --- */
+
+
+.virtual-scroll-wrapper {
+  height: 180vh; /* Un tramo dinámico y corto de scroll */
+  background-color: #000000;
+}
+
+.virtual-sticky-viewport {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 4% 40px 4%;
+  box-sizing: border-box;
+}
+
+/* --- TEXTOS (FONDO NEGRO / TEXTO BLANCO) --- */
+.virtual-top-content {
+  text-align: center;
+  color: #ffffff;
+  max-width: 650px;
+  z-index: 10;
+}
+
+.virtual-title {
+  font-size: 3.8rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  margin: 0 0 16px 0;
+}
+
+.virtual-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  line-height: 1.4;
+  margin-bottom: 24px;
+}
+
+.btn-create-card {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+/* --- ESCENA TRIDIMENSIONAL --- */
+.virtual-scene-3d {
+  position: absolute;
+  width: 100%;
+  max-width: 1200px;
+  height: 500px;
+  bottom: 5%;
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+/* --- MOCKUP SMARTPHONE INCLINADO --- */
+.phone-mockup-3d {
+  width: 550px;
+  height: 400px;
+  background: linear-gradient(135deg, #2c3238 0%, #111416 100%);
+  border-radius: 44px 44px 0 0; /* Esquinas redondas solo arriba */
+  border: 4px solid #454d55;
+  box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+  transform: rotateX(50deg) rotateY(-25deg) rotateZ(20deg) translateY(80px);
+  padding: 24px 24px 0 24px;
+  box-sizing: border-box;
+}
+
+.phone-screen-content {
+  width: 100%;
+  height: 100%;
+  background-color: #141416;
+  border-radius: 24px 24px 0 0;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.phone-active-card {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(135deg, #7f00ff 0%, #e100ff 100%);
+  border-radius: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.card-logo-mini {
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: -0.03em;
+}
+
+.card-type-tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  opacity: 0.8;
+}
+
+.phone-ui-controls {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding-bottom: 20px;
+}
+
+.ui-icon {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1.2rem;
+}
+
+/* --- TARJETAS VOLADORAS EN PERSPECTIVA --- */
+.flying-card {
+  position: absolute;
+  width: 280px;
+  height: 175px;
+  border-radius: 16px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  will-change: transform, opacity;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.black-card {
+  background: linear-gradient(135deg, #2b2e31 0%, #0c0d0e 100%);
+  color: #ffffff;
+  left: 20%;
+}
+
+.neon-card {
+  background: #ccff00; /* Color neón idéntico de Revolut */
+  color: #000000;
+  right: 15%;
+  top: 15%;
+}
+
+.dark-text {
+  color: #000000 !important;
+}
+
+/* --- SELECTOR DE TABS INFERIOR --- */
+.virtual-tabs-bottom {
+  display: flex;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px;
+  border-radius: 9999px;
+  z-index: 10;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.virtual-tab-pill {
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.virtual-tab-pill.active {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* --- ##### COMPONENTE AI ASSISTANT SECTION ######## --- */
+
+/* --- HALO DE CURSOR BLANCO VITAMINADO Y ULTRA-VISIBLE --- */
+.ai-cursor-halo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 500px; /* Incrementamos el tamaño para expandir el radio */
+  height: 500px;
+  background: radial-gradient(
+    circle, 
+    rgba(255, 255, 255, 0.18) 0%,    /* Centro con bastante fuerza */
+    rgba(255, 255, 255, 0.08) 30%,   /* Cuerpo intermedio visible */
+    rgba(255, 255, 255, 0.02) 65%,   /* Dispersión periférica */
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+  will-change: transform;
+  mix-blend-mode: screen; 
+  transition: transform 0.08s cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+.ai-scroll-wrapper {
+  height: 180vh; /* Controlamos el tramo del chat con el scroll */
+  background-color: #000000;
+  position: relative;
+}
+
+.ai-sticky-viewport {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 4% 0 4%;
+  box-sizing: border-box;
+}
+
+/* --- HAZ DE LUZ BLANCA DINÁMICO --- */
+.ai-ambient-glow {
+  position: absolute;
+  top: 30%;
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 70%);
+  filter: blur(80px); /* Difumina la luz para hacerla ultra ambiental */
+  z-index: 1;
+  pointer-events: none;
+  transform: skewX(-20deg);
+  will-change: left;
+  transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- TEXTOS PRINCIPALES --- */
+.ai-top-content {
+  text-align: center;
+  color: #ffffff;
+  max-width: 750px;
+  z-index: 5;
+}
+
+.ai-title {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  margin: 0 0 16px 0;
+}
+
+.ai-subtitle {
+  font-size: 1.15rem;
+  opacity: 0.85;
+  max-width: 600px;
+  margin: 0 auto 24px auto;
+  line-height: 1.4;
+}
+
+.btn-ai-learn {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+/* --- MOCKUP FRONT DEL SMARTPHONE --- */
+.ai-phone-container {
+  width: 100%;
+  max-width: 440px;
+  height: 520px;
+  display: flex;
+  justify-content: center;
+  z-index: 3;
+}
+
+.ai-phone-body {
+  width: 360px;
+  height: 100%;
+  background-color: #0b0b0c;
+  border-radius: 48px 48px 0 0;
+  border: 4px solid #232325;
+  border-bottom: none;
+  box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 20px 0 20px;
+  box-sizing: border-box;
+}
+
+/* --- INTERFAZ DEL CHAT "AIR" --- */
+.ai-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffffff;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.chat-close {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.chat-title {
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.chat-avatar-orb {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+  box-shadow: 0 0 15px rgba(194, 233, 251, 0.6);
+}
+
+.ai-chat-messages-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 32px;
+}
+
+/* --- BURBUJAS DE CONVERSACIÓN --- */
+.chat-bubble {
+  max-width: 80%;
+  padding: 14px 18px;
+  border-radius: 20px;
+  color: #ffffff;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  will-change: transform, opacity;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.chat-bubble p {
+  margin: 0;
+}
+
+.user-bubble {
+  align-self: flex-end;
+  background-color: #2c2c2e;
+  border-bottom-right-radius: 4px;
+}
+
+.ai-bubble {
+  align-self: flex-start;
+  background-color: #1c1c1e;
+  border-bottom-left-radius: 4px;
+}
+
+.typing-bubble {
+  align-self: flex-start;
+  background-color: #1c1c1e;
+  padding: 10px 16px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.typing-dots {
+  letter-spacing: 2px;
+  animation: pulseDots 1.4s infinite;
+}
+
+@keyframes pulseDots {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* --- ##### COMPONENTE STOCK SECTION ######## --- */
+
+.revolut-stocks-section {
+  background-color: #ffffff; /* Inversión a blanco puro */
+  color: #000000; /* Texto negro profundo */
+  padding: 120px 4%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.stocks-container {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- TEXTOS ASIMÉTRICOS Y LIMPIOS --- */
+.stocks-top-content {
+  text-align: center;
+  max-width: 780px;
+  margin-bottom: 60px;
+}
+
+.stocks-title {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  margin: 0 0 20px 0;
+  line-height: 1.05;
+}
+
+.stocks-subtitle {
+  font-size: 1.15rem;
+  color: #191919;
+  line-height: 1.5;
+  max-width: 680px;
+  margin: 0 auto 12px auto;
+}
+
+.stocks-risk-disclaimer {
+  font-size: 0.8rem;
+  color: #767676;
+  display: block;
+  margin-bottom: 28px;
+}
+
+.btn-stocks-action {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.btn-stocks-action:hover {
+  transform: scale(1.02);
+}
+
+/* --- ESCENA TRIDIMENSIONAL DE MONEDAS --- */
+.stocks-scene-3d {
+  width: 100%;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1400px; /* Profundidad de cámara de la escena */
+}
+
+.stocks-orbit-center {
+  position: relative;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* --- INGENIERÍA METÁLICA DE LAS MONEDAS (image_f99c01.jpg) --- */
+.stock-coin-3d {
+  position: absolute;
+  width: 170px; /* Proporciones idénticas a la imagen */
+  height: 170px;
+  margin-left: -85px;
+  margin-top: -85px;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.coin-metal-edge {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e6e8ea 0%, #b4b9bc 50%, #e6e8ea 100%);
+  padding: 5px; /* Crea el grosor exterior del relieve metálico */
+  box-sizing: border-box;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15), 
+              inset 0 2px 4px rgba(255, 255, 255, 0.6);
+}
+
+.coin-face-front {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #93999c 0%, #767c7f 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: inset 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.coin-inner-emboss {
+  text-align: center;
+  color: #3b3f41; /* Efecto troquelado oscuro mate */
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.15), -1px -1px 1px rgba(0,0,0,0.4);
+}
+
+.coin-text-logo {
+  font-family: "Times New Roman", Times, serif; /* Estilo clásico tipográfico de BH */
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+
+.logo-msft-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+  width: 50px;
+  height: 50px;
+}
+
+.logo-msft-grid span {
+  background-color: #3b3f41;
+  border-radius: 2px;
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.3), 1px 1px 0px rgba(255,255,255,0.1);
+}
+
+.stock-coin-3d {
+  animation: coinWobble 5s ease-in-out infinite alternate;
+}
+
+@keyframes coinWobble {
+  0% { filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1)); }
+  100% { filter: drop-shadow(0 25px 40px rgba(0,0,0,0.15)); transform: translateY(-5px); }
+}
+
+/* --- ##### COMPONENTE USER COUNTER SECTION ######## --- */
+
+
+.pb-counter-section {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 120px 6% 80px 6%;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #f0f0f0;
+}
+
+.counter-container {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.counter-logo {
+  width: 85px;
+  height: 85px;
+  
+}
+
+.counter-title-box  {
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.counter-main-title {
+  font-size: 4.5rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  text-align: center;
+  max-width: 950px;
+  margin: 0 0 40px 0;
+}
+
+.blue-brand-number {
+  color: #0052ff; /* Azul eléctrico puro de alta conversión */
+  display: inline-block;
+  min-width: 160px; /* Evita que el texto baile hacia los lados al crecer */
+  font-variant-numeric: tabular-nums; /* Fuerza que los números midan lo mismo */
+}
+
+.btn-counter-download {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 16px 36px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 90px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-counter-download:hover {
+  transform: scale(1.02);
+}
+
+/* --- TEXTO LEGAL REFINADO (AL PÍXEL DE LA CAPTURA) --- */
+.counter-legal-box {
+  border-top: 1px solid #e6e8ea;
+  padding-top: 24px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+.legal-index-marker {
+  position: absolute;
+  top: 24px;
+  left: -15px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #767676;
+}
+
+.counter-legal-box p {
+  font-size: 0.8rem; /* Tipografía condensada gris legal */
+  color: #767676;
+  line-height: 1.6;
+  margin: 0;
+  text-align: justify;
+}
+
+@media (max-width: 868px) {
+  .counter-main-title {
+    font-size: 3rem;
+  }
+  .blue-brand-number {
+    min-width: auto;
+  }
+  .btn-counter-download {
+    margin-bottom: 60px;
+  }
+}
+
+/* --- ##### COMPONENTE PLAN SELECTION SECTION ######## --- */
+
+
+.pb-plans-section {
+  background-color: #111112; /* Fondo antracita oscuro de Revolut */
+  color: #ffffff;
+  padding: 120px 6%;
+  display: flex;
+  justify-content: center;
+}
+
+.plans-container {
+  width: 100%;
+  max-width: 1160px;
+}
+
+.plans-main-title {
+  font-size: 3.8rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  margin: 0 0 48px 0;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card-wide {
+  grid-column: span 1; /* Por defecto en móvil */
+}
+
+@media (min-width: 900px) {
+  .card-wide {
+    grid-column: span 1;
+  }
+  .plans-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .card-standard {
+    grid-column: span 2;
+  }
+  .card-wide:nth-of-type(4) {
+    grid-column: span 3;
+  }
+  .card-wide:nth-of-type(5) {
+    grid-column: span 3;
+  }
+}
+
+/* --- DISEÑO DE TARJETA INDIVIDUAL --- */
+.plan-card-item {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 24px;
+  padding: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 320px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.plan-card-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.plan-card-header {
+  margin-bottom: 16px;
+}
+
+.plan-name {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 8px 0;
+}
+
+.plan-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #111112;
+  margin: 0;
+}
+
+.plan-description {
+  font-size: 0.95rem;
+  color: #545454;
+  line-height: 1.5;
+  margin: 0 0 40px 0;
+  text-align: left;
+}
+
+.plan-arrow-btn {
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: transparent; /* Empieza transparente */
+  color: #000000;                /* Flecha negra al inicio */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+              color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.3s ease;
+}
+
+.arrow-icon-svg {
+  width: 18px;
+  height: 18px;
+}
+
+.plan-card-item:hover .plan-arrow-btn {
+  background-color: #000000; /* Fondo negro circular */
+  color: #ffffff;            /* Vector de la flecha blanco */
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .plans-main-title { font-size: 2.8rem; }
+  .plans-grid { grid-template-columns: 1fr !important; }
+  .card-standard, .card-wide { grid-column: span 1 !important; }
+  .plan-card-item { padding: 30px; min-height: auto; }
+}
+
+/* --- ##### COMPONENTE AI ASSISTANT SECTION ######## --- */
+
+.pb-footer-menu-section {
+  background-color: #111112;
+  padding: 80px 6% 60px 6%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-global-wrapper {
+  width: 100%;
+  max-width: 1160px;
+}
+
+/* --- REJILLA SUPERIOR DEL MEGAMENÚ --- */
+.footer-menu-container {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 24px;
+  padding-bottom: 60px;
+}
+
+.footer-menu-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-column-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.01em;
+}
+
+.footer-column-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-link-item {
+  font-size: 0.85rem;
+  color: #a0a0a5;
+  text-decoration: none;
+  line-height: 1.3;
+  display: inline-block;
+  transition: color 0.2s ease;
+}
+
+.footer-link-item:hover {
+  color: #ffffff;
+}
+
+/* --- LÍNEA CENTRAL: LOGO Y REDES SOCIALES --- */
+.footer-brand-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 32px 0;
+}
+
+.footer-logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 20px;
+}
+
+.social-icon {
+  color: #a0a0a5;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.social-icon:hover {
+  color: #ffffff;
+}
+
+/* --- BLOQUE DE CUMPLIMIENTO LEGAL INFERIOR --- */
+.footer-legal-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer-country-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.country-flag {
+  font-size: 1.1rem;
+}
+
+.country-name {
+  font-size: 0.85rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.footer-legal-links-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.footer-legal-link {
+  font-size: 0.8rem;
+  color: #a0a0a5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-legal-link:hover {
+  color: #ffffff;
+}
+
+.footer-copyright {
+  font-size: 0.8rem;
+  color: #707075;
+  margin-top: 16px;
+}
+
+/* --- RESPONSIVE PREMIUM --- */
+@media (max-width: 1024px) {
+  .footer-menu-container { grid-template-columns: repeat(4, 1fr); gap: 32px 24px; }
+}
+
+@media (max-width: 680px) {
+  .footer-menu-container { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
+  .footer-brand-bar { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .footer-socials { gap: 16px; }
+}

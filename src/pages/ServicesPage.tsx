@@ -1,6 +1,6 @@
-// src/features/services/Services.tsx
+
 import { useState } from 'react';
-import './Services.css';
+import"../styles/Services.css";
 
 interface Contact {
   id: string;

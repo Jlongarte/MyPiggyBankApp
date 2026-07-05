@@ -1,79 +1,120 @@
-import { useState } from "react";
-import BalanceCard from "../components/Dashboard/BalanceCard";
-import TransactionList from "../components/Dashboard/TransactionList";
-import TransactionForm from "../components/Dashboard/TransactionForm";
+// src/pages/DashBoardPage.tsx
+import { useState, useEffect } from "react";
+import type { Transaction, CryptoCoin } from "../types.ts"; // Ajusta la ruta a tu archivo types según tu estructura
+import InicioView from "../components/Dashboard/InicioView";
+import BalanceView from "../components/Dashboard/BalanceView";
+import CryptoView from "../components/Dashboard/CryptoView";
+import "../styles/Dashboard.css";
 
-// 1. Definimos una interfaz interna para saber qué estructura tiene una transacción en nuestra lista
-interface TransactionItem {
-  id: string;
-  date: string;
-  description: string;
-  amount: number;
-  type: "ingreso" | "gasto";
-  transferedTo?: string;
-}
+const DashBoardPage = () => {
+  const [activeTab, setActiveTab] = useState<"inicio" | "balance" | "transferencias" | "crypto">("inicio");
+  const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [cryptoData, setCryptoData] = useState<CryptoCoin[]>([]);
+  const [loading, setLoading] = useState(true);
 
-const DashBoard = () => {
-  // 2. Estados dinámicos para el saldo y las transacciones
-  const [balance, setBalance] = useState<number>(1000);
-  const [transactions, setTransactions] = useState<TransactionItem[]>([
-    {
-      id: "1",
-      date: "2026-07-01",
-      description: "Depósito inicial",
-      amount: 1000,
-      type: "ingreso",
-    },
-  ]);
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const resTx = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=8");
+        const jsonTx = await resTx.json();
+        
+        // Mapeamos cumpliendo estrictamente con tu interfaz extendida de Transaction
+        const mappedTx: Transaction[] = jsonTx.map((item: any) => {
+          const isExpense = item.id % 2 === 0;
+          return {
+            id: `tx-${item.id}`,
+            concept: item.title.charAt(0).toUpperCase() + item.title.slice(1, 18),
+            amount: isExpense ? (item.id * 7.4) : (item.id * 12.5),
+            type: isExpense ? "expense" : "income",
+            date: `Hoy, ${10 + item.id}:50`,
+            category: isExpense ? "Transferencia" : "Salario"
+          };
+        });
+        setTransactions(mappedTx);
 
-  // 3. Función que procesa el nuevo movimiento enviado por el formulario
-  const handleAddTransaction = (newTx: {
-    type: "ingreso" | "gasto" | "transferencia";
-    description: string;
-    amount: number;
-  }) => {
-    // A) Actualizamos el saldo dependiendo de si es ingreso o gasto
-    if (newTx.type === "gasto") {
-      if (newTx.amount > balance) {
-        alert("¡Fondos insuficientes para realizar este gasto!");
-        return; // Cancelamos la operación si no hay dinero
+        const resCrypto = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=4");
+        if (resCrypto.ok) {
+          const jsonCrypto = await resCrypto.json();
+          setCryptoData(jsonCrypto.map((c: any) => ({
+            id: c.id,
+            name: c.name,
+            symbol: c.symbol.toUpperCase(),
+            current_price: c.current_price,
+            price_change_percentage_24h: c.price_change_percentage_24h,
+            image: c.image
+          })));
+        }
+      } catch (err) {
+        console.error("Error cargando los datos del Dashboard:", err);
+      } finally {
+        setLoading(false);
       }
-      setBalance((prev) => prev - newTx.amount);
-    } else {
-      setBalance((prev) => prev + newTx.amount);
-    }
-
-    // B) Creamos el objeto completo con ID y Fecha para el historial
-    const fullTransaction: TransactionItem = {
-      id: Date.now().toString(), // ID único basado en el tiempo
-      date: new Date().toISOString().split("T")[0], // Fecha actual en formato YYYY-MM-DD
-      description: newTx.description,
-      amount: newTx.amount,
-      type: newTx.type,
-      // Si quisiéramos un destinatario real podríamos sacarlo de un input, de momento lo dejamos opcional
-      transferedTo: newTx.type === "gasto" ? "Destinatario simulado" : undefined,
     };
+    loadData();
+  }, []);
 
-    // C) Agregamos la nueva transacción al inicio de la lista
-    setTransactions((prevTransactions) => [fullTransaction, ...prevTransactions]);
+  const handleNewTransfer = (destinatario: string, monto: number) => {
+    // Rellenamos el contrato completo de tu interfaz
+    const nuevaTx: Transaction = {
+      id: `tx-${Date.now()}`,
+      concept: `A ${destinatario}`,
+      amount: monto,
+      type: "expense",
+      date: "Ahora mismo",
+      category: "Envio Inmediato"
+    };
+    setTransactions([nuevaTx, ...transactions]);
+    alert(`¡Transferencia de ${monto}€ completada!`);
+    setActiveTab("inicio");
   };
 
+  if (loading) return <div className="revolut-loading">Sincronizando con The Piggy Bank...</div>;
+
   return (
-    <div style={{ padding: "20px", maxWidth: "800px", margin: "0 auto", fontFamily: "sans-serif" }}>
-      <h1>DashBoard</h1>
-      
-      {/* Pasamos el saldo del estado */}
-      <BalanceCard balance={balance} />
-      
-      <div style={{ display: "flex", gap: "20px", marginTop: "20px", flexWrap: "wrap" }}>
-        {/* Pasamos la función que manejará el envío */}
-        <TransactionForm onSubmit={handleAddTransaction} />
-        
-        {/* Pasamos la lista de transacciones del estado */}
-        <TransactionList transactions={transactions} />
+    <div className="revolut-layout">
+      <aside className="revolut-sidebar">
+        <div className="revolut-sidebar-logo">R</div>
+        <nav className="revolut-sidebar-nav">
+          <button className={`nav-item-btn ${activeTab === "inicio" ? "active" : ""}`} onClick={() => setActiveTab("inicio")}>
+            <span className="nav-icon">🏠</span><span className="nav-text">Inicio</span>
+          </button>
+          <button className={`nav-item-btn ${activeTab === "balance" ? "active" : ""}`} onClick={() => setActiveTab("balance")}>
+            <span className="nav-icon">📊</span><span className="nav-text">Balance</span>
+          </button>
+          <button className={`nav-item-btn ${activeTab === "transferencias" ? "active" : ""}`} onClick={() => setActiveTab("transferencias")}>
+            <span className="nav-icon">💸</span><span className="nav-text">Enviar</span>
+          </button>
+          <button className={`nav-item-btn ${activeTab === "crypto" ? "active" : ""}`} onClick={() => setActiveTab("crypto")}>
+            <span className="nav-icon">🪙</span><span className="nav-text">Cripto</span>
+          </button>
+        </nav>
+      </aside>
+
+      <div className="revolut-main-container">
+        <header className="revolut-top-bar">
+          <h1 className="revolut-page-title">
+            {activeTab === "inicio" && "Inicio"}
+            {activeTab === "balance" && "Análisis del Balance"}
+            {activeTab === "transferencias" && "Transferencias"}
+            {activeTab === "crypto" && "Inversiones"}
+          </h1>
+          <div className="revolut-top-actions">
+            <button className="btn-revolut-secondary" onClick={() => alert("IBAN: ES21 0049 1234 5678\nTitular: Cliente VIP")}>
+              💼 Datos de la cuenta
+            </button>
+            <div className="user-avatar-badge">JL</div>
+          </div>
+        </header>
+
+        <main className="revolut-dashboard-card">
+          {activeTab === "inicio" && <InicioView transactions={transactions} />}
+          {activeTab === "balance" && <BalanceView transactions={transactions} />}
+          {activeTab === "transferencias" && <TransferenciasView onTransfer={handleNewTransfer} />}
+          {activeTab === "crypto" && <CryptoView cryptoData={cryptoData} />}
+        </main>
       </div>
     </div>
   );
 };
 
-export default DashBoard;
+export default DashBoardPage;

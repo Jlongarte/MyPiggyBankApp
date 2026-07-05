@@ -1,0 +1,39 @@
+.pb-btn-register {
+  border: none;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  will-change: transform;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              background-color 0.2s ease, 
+              color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.btn-variant-white {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.btn-variant-white:hover {
+  background-color: #f4f4f6;
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+.btn-variant-black {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.btn-variant-black:hover {
+  background-color: #191919;
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}

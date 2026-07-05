@@ -1,4 +1,4 @@
-import "./Navbar.css";
+import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
 
 
@@ -8,6 +8,7 @@ const Navbar: React.FC = () => {
       <ul className="nav-section">
         <li><img src="/logo.png" alt="Logo" className="logo" /></li>
         <li><Link to="/">Home</Link></li>
+        <li><Link to="/dashboard">Dashboard</Link></li>
         <li><Link to="/crypto">Crypto Market</Link></li>
         <li><Link to="/services">Services</Link></li>
         <li><Link to="/">Contact</Link></li>

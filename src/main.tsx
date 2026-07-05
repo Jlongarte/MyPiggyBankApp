@@ -9,6 +9,7 @@ import './index.css'
 import ServicesPage from './pages/ServicesPage'
 import Register from './pages/Register'
 import Login from './pages/Login'
+import Home from './pages/Home'
 
 
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/", 
+        element: <Home />
+      },
+      {
+        path: "dashboard", 
         element: <DashBoard />
       },
       {
