@@ -1,4 +1,3 @@
-// src/features/home/components/HeroText.tsx
 interface Props { progress: number; }
 
 const HeroText: React.FC<Props> = ({ progress }) => {

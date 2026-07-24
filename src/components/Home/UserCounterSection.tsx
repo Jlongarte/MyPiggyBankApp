@@ -1,4 +1,3 @@
-// src/features/home/components/UserCounterSection.tsx
 import { useState, useEffect, useRef } from "react";
 
 const UserCounterSection: React.FC = () => {
@@ -58,7 +57,7 @@ const UserCounterSection: React.FC = () => {
         
         <button className="btn-counter-download">Descarga la app</button>
 
-        {/* --- TEXTO LEGAL Y DISCLAIMER ADAPTADO (image_f9b227.png) --- */}
+        {/* --- TEXTO LEGAL Y DISCLAIMER ADAPTADO  --- */}
         <div className="counter-legal-box">
           <p className="legal-index-marker">1</p>
           <p>

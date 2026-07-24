@@ -1,4 +1,3 @@
-// src/features/home/components/AiAssistantSection.tsx
 import { useState, useEffect, useRef } from "react";
 
 interface ChatMessage {
@@ -55,14 +54,14 @@ const AiAssistantSection: React.FC = () => {
     <div 
       className="ai-scroll-wrapper" 
       ref={containerRef}
-      onMouseMove={handleMouseMove} // <-- Escuchamos el movimiento aquí
+      onMouseMove={handleMouseMove} 
     >
       <div className="ai-sticky-viewport">
         
         {/* HAZ DE LUZ AMBIENTAL DE SCROLL ORIGINAL */}
         <div className="ai-ambient-glow" style={{ left: `${lightPosition}%` }} />
 
-        {/* ✨ NUEVO: HALO BLANCO QUE SIGUE AL CURSOR */}
+        {/* HALO BLANCO QUE SIGUE AL CURSOR */}
         <div 
           className="ai-cursor-halo"
           style={{

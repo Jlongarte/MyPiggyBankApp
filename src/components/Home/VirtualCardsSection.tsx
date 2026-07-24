@@ -1,4 +1,3 @@
-// src/features/home/components/VirtualCardsSection.tsx
 import { useState, useEffect, useRef } from "react";
 
 const VirtualCardsSection: React.FC = () => {
@@ -26,7 +25,7 @@ const VirtualCardsSection: React.FC = () => {
     <div className="virtual-scroll-wrapper" ref={containerRef}>
       <div className="virtual-sticky-viewport">
         
-        {/* ================= TEXTO SUPERIOR COMPLETAMENTE FIJO ================= */}
+        {/* ================= TEXTO SUPERIOR ================= */}
         <div className="virtual-top-content">
           <h2 className="virtual-title">Go virtual</h2>
           <p className="virtual-subtitle">
@@ -35,7 +34,7 @@ const VirtualCardsSection: React.FC = () => {
           <button className="btn-create-card">Create a card</button>
         </div>
 
-        {/* ================= ESCENA 3D (SMARTPHONE Y TARJETAS) ================= */}
+        {/* ================= ESCENA 3D  ================= */}
         <div className="virtual-scene-3d">
           
           {/* El Smartphone inclinado estilo Revolut */}
@@ -56,7 +55,7 @@ const VirtualCardsSection: React.FC = () => {
             </div>
           </div>
 
-          {/* TARJETA NEGRA (Vuela desde la izquierda/abajo hacia el teléfono) */}
+          {/* TARJETA NEGRA  */}
           <div 
             className="flying-card black-card"
             style={{
@@ -68,7 +67,7 @@ const VirtualCardsSection: React.FC = () => {
             <span className="card-type-tag">VIRTUAL</span>
           </div>
 
-          {/* TARJETA NEÓN REVOLUT (Vuela desde arriba/derecha y se posiciona en el slot) */}
+          {/* TARJETA NEÓN REVOLUT */}
           <div 
             className="flying-card neon-card"
             style={{

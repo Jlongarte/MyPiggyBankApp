@@ -948,12 +948,12 @@
   50% { opacity: 1; }
 }
 
-/* --- ##### COMPONENTE STOCK SECTION ######## --- */
+/* --- ##### COMPONENTE STOCK SECTION (MODO OSCURO + VIDEO) ######## --- */
 
 .revolut-stocks-section {
-  background-color: #ffffff; /* Inversión a blanco puro */
-  color: #000000; /* Texto negro profundo */
-  padding: 120px 4%;
+  background-color: #000000; /* Fondo negro profundo idéntico a image_c97dbe.jpg */
+  color: #ffffff; /* Texto blanco contrastado */
+  padding: 120px 4% 80px 4%;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -967,140 +967,80 @@
   align-items: center;
 }
 
-/* --- TEXTOS ASIMÉTRICOS Y LIMPIOS --- */
+/* --- BLOQUE DE TEXTO SUPERIOR --- */
 .stocks-top-content {
   text-align: center;
   max-width: 780px;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .stocks-title {
   font-size: 4rem;
   font-weight: 700;
   letter-spacing: -0.04em;
+  color: #ffffff;
   margin: 0 0 20px 0;
   line-height: 1.05;
 }
 
 .stocks-subtitle {
   font-size: 1.15rem;
-  color: #191919;
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.5;
   max-width: 680px;
   margin: 0 auto 12px auto;
 }
 
+.stocks-subtitle sup {
+  font-size: 0.75rem;
+  margin-left: 2px;
+}
+
 .stocks-risk-disclaimer {
   font-size: 0.8rem;
-  color: #767676;
+  color: rgba(255, 255, 255, 0.5);
   display: block;
   margin-bottom: 28px;
 }
 
 .btn-stocks-action {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #ffffff; /* Botón blanco brillante */
+  color: #000000;
   border: none;
-  padding: 14px 28px;
+  padding: 14px 32px;
   border-radius: 9999px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .btn-stocks-action:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
+  background-color: #f0f0f0;
 }
 
-/* --- ESCENA TRIDIMENSIONAL DE MONEDAS --- */
-.stocks-scene-3d {
+/* --- CONTENEDOR DEL VÍDEO (REMPLAZA A LAS MONEDAS 3D) --- */
+.stocks-video-wrapper {
   width: 100%;
-  height: 350px;
+  max-width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
-  perspective: 1400px; /* Profundidad de cámara de la escena */
+  margin-top: 20px;
 }
 
-.stocks-orbit-center {
-  position: relative;
-  width: 0;
-  height: 0;
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-
-/* --- INGENIERÍA METÁLICA DE LAS MONEDAS (image_f99c01.jpg) --- */
-.stock-coin-3d {
-  position: absolute;
-  width: 170px; /* Proporciones idénticas a la imagen */
-  height: 170px;
-  margin-left: -85px;
-  margin-top: -85px;
-  transform-style: preserve-3d;
-  will-change: transform;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.coin-metal-edge {
+.stocks-loop-video {
   width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #e6e8ea 0%, #b4b9bc 50%, #e6e8ea 100%);
-  padding: 5px; /* Crea el grosor exterior del relieve metálico */
-  box-sizing: border-box;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15), 
-              inset 0 2px 4px rgba(255, 255, 255, 0.6);
+  height: auto;
+  max-height: 480px;
+  object-fit: contain;
+  border-radius: 16px;
+  background: transparent;
+  /* Opcional: elimina bordes accidentales y asegura blend limpio */
+  mix-blend-mode: lighten; 
 }
 
-.coin-face-front {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: radial-gradient(circle, #93999c 0%, #767c7f 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  box-shadow: inset 0 4px 10px rgba(0,0,0,0.2);
-}
-
-.coin-inner-emboss {
-  text-align: center;
-  color: #3b3f41; /* Efecto troquelado oscuro mate */
-  text-shadow: 1px 1px 1px rgba(255,255,255,0.15), -1px -1px 1px rgba(0,0,0,0.4);
-}
-
-.coin-text-logo {
-  font-family: "Times New Roman", Times, serif; /* Estilo clásico tipográfico de BH */
-  font-size: 3.2rem;
-  font-weight: 700;
-  letter-spacing: -0.05em;
-}
-
-.logo-msft-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
-  width: 50px;
-  height: 50px;
-}
-
-.logo-msft-grid span {
-  background-color: #3b3f41;
-  border-radius: 2px;
-  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.3), 1px 1px 0px rgba(255,255,255,0.1);
-}
-
-.stock-coin-3d {
-  animation: coinWobble 5s ease-in-out infinite alternate;
-}
-
-@keyframes coinWobble {
-  0% { filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1)); }
-  100% { filter: drop-shadow(0 25px 40px rgba(0,0,0,0.15)); transform: translateY(-5px); }
-}
 
 /* --- ##### COMPONENTE USER COUNTER SECTION ######## --- */
 

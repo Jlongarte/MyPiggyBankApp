@@ -32,17 +32,22 @@ const DashBoardPage = () => {
         });
         setTransactions(mappedTx);
 
-        const resCrypto = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=4");
+       
+        const resCrypto = await fetch(
+          "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=10&page=1&sparkline=false"
+        );
         if (resCrypto.ok) {
           const jsonCrypto = await resCrypto.json();
-          setCryptoData(jsonCrypto.map((c: any) => ({
-            id: c.id,
-            name: c.name,
-            symbol: c.symbol.toUpperCase(),
-            current_price: c.current_price,
-            price_change_percentage_24h: c.price_change_percentage_24h,
-            image: c.image
-          })));
+          setCryptoData(
+            jsonCrypto.map((c: any) => ({
+              id: c.id,
+              name: c.name,
+              symbol: c.symbol.toUpperCase(),
+              current_price: c.current_price,
+              price_change_percentage_24h: c.price_change_percentage_24h,
+              image: c.image
+            }))
+          );
         }
       } catch (err) {
         console.error("Error cargando los datos del Dashboard:", err);

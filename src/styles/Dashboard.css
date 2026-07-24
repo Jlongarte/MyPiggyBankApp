@@ -304,3 +304,192 @@
 .c-change.n { color: #ef4444; font-size: 0.85rem; }
 
 .revolut-loading { color: #5f6670; text-align: center; padding: 100px; font-size: 1.1rem; }
+
+/* --- ESTILOS DE WEBSOCKET EN TIEMPO REAL --- */
+.crypto-header-ws {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.ws-live-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #10b981;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.ws-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulse-live 1.5s infinite;
+}
+
+@keyframes pulse-live {
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.3); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Efectos de destello al cambiar de precio */
+.c-price.price-tick-up {
+  color: #10b981 !important;
+  font-weight: 800;
+}
+
+.c-price.price-tick-down {
+  color: #ef4444 !important;
+  font-weight: 800;
+}
+
+
+/* --- VISTA DE BALANCE PROFESIONAL --- */
+.view-balance-pro {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* KPIs METRICAS */
+.balance-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.kpi-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.kpi-label {
+  font-size: 0.8rem;
+  color: #8a919e;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.kpi-value-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kpi-amount {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.kpi-amount.inc-text { color: #10b981; }
+.kpi-amount.exp-text { color: #f43f5e; }
+
+.kpi-badge.positive {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10b981;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* FILTROS Y CABECERA */
+.chart-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.section-subtitle-sm {
+  margin: 4px 0 0 0;
+  font-size: 0.85rem;
+  color: #8a919e;
+}
+
+.time-range-pills {
+  display: flex;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 4px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.pill-btn {
+  background: transparent;
+  border: none;
+  color: #8a919e;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill-btn:hover {
+  color: #ffffff;
+}
+
+.pill-btn.active {
+  background: #0052ff;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 82, 255, 0.35);
+}
+
+/* TOOLTIP GLASSMORPHISM */
+.balance-custom-tooltip {
+  background: rgba(11, 18, 32, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 140px;
+}
+
+.tooltip-date {
+  margin: 0 0 4px 0;
+  font-size: 0.75rem;
+  color: #8a919e;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.tooltip-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: #d1d5db;
+}
+
+.tooltip-val-balance { color: #ffffff; }
+.tooltip-val-inc { color: #10b981; font-weight: 600; }
+.tooltip-val-exp { color: #f43f5e; font-weight: 600; }
+
+@media (max-width: 768px) {
+  .balance-kpi-grid { grid-template-columns: 1fr; }
+  .chart-header-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+}

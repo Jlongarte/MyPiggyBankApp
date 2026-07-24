@@ -1,4 +1,3 @@
-// src/components/Dashboard/TransferenciasView.tsx
 import { useState } from "react";
 
 interface TransferenciasViewProps {

@@ -1,4 +1,3 @@
-// src/features/home/components/SavingsTabsSection.tsx
 import { useState, useEffect, useRef } from "react";
 
 interface TabData {
@@ -42,18 +41,16 @@ const SavingsTabsSection: React.FC = () => {
   const [activeIdx, setActiveIdx] = useState(0);
 
   useEffect(() => {
-    // Dentro de SavingsTabsSection.tsx, en el useEffect:
+   
 const handleScroll = () => {
   if (!containerRef.current) return;
 
   const rect = containerRef.current.getBoundingClientRect();
-  // Al restarle un extra (ej. 300px), el tramo de scroll se vuelve más corto y dinámico
   const totalHeight = rect.height - window.innerHeight; 
   const scrolledIntoSection = -rect.top;
 
   if (scrolledIntoSection >= 0 && scrolledIntoSection <= totalHeight) {
     const progress = scrolledIntoSection / totalHeight;
-    // Multiplicamos con un multiplicador de sensibilidad para que cambien más rápido
     const currentTab = Math.min(tabs.length - 1, Math.floor(progress * tabs.length));
     setActiveIdx(currentTab);
   }

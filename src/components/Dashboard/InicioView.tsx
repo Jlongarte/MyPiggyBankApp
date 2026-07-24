@@ -1,5 +1,5 @@
-// src/components/Dashboard/InicioView.tsx
-import type { Transaction } from "../../types"; // Ajusta la ruta a tu archivo types según tu estructura
+
+import type { Transaction } from "../../types"; 
 
 interface InicioViewProps {
   transactions: Transaction[];
@@ -24,7 +24,7 @@ const InicioView = ({ transactions }: InicioViewProps) => {
         {transactions.map((tx) => (
           <div key={tx.id} className="revolut-tx-row">
             <div className="tx-row-left">
-              {/* Usamos el tipo "income" o "expense" que ya tienes en tus tipos */}
+              {/* Usamos el tipo "income" o "expense" */}
               <div className={`tx-avatar-circle ${tx.type === "expense" ? "exp" : "inc"}`}>
                 {tx.concept.charAt(0)}
               </div>

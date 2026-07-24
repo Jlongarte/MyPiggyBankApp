@@ -1,4 +1,3 @@
-// src/features/home/components/GridText.tsx
 interface Props { progress: number; }
 
 const GridText: React.FC<Props> = ({ progress }) => {

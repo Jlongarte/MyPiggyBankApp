@@ -31,7 +31,7 @@ const FooterMenu: React.FC = () => {
     <footer className="pb-footer-menu-section">
       <div className="footer-global-wrapper">
         
-        {/* ================= PARTE SUPERIOR: MEGAMENÚ (image_fa2000.png) ================= */}
+        {/* ================= PARTE SUPERIOR: MEGAMENÚ  ================= */}
         <div className="footer-menu-container">
           {footerNavigation.map((col, idx) => (
             <div key={idx} className="footer-menu-column">

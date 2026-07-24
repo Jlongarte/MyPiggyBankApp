@@ -1,4 +1,3 @@
-// src/features/home/components/SecuritySection.tsx
 import { useState, useEffect, useRef } from "react";
 
 const SecuritySection: React.FC = () => {
@@ -27,7 +26,7 @@ const SecuritySection: React.FC = () => {
     <section className="revolut-security-section" ref={sectionRef}>
       <div className="security-container">
         
-        {/* Bloque Izquierdo: Textos y Botón al píxel como en image_f8be69.png */}
+        {/* Bloque Izquierdo: Textos y Botón  */}
         <div className="security-text-block">
           <h2 className="security-title">Your money’s safe <br /> space</h2>
           <p className="security-subtitle">
@@ -42,9 +41,9 @@ const SecuritySection: React.FC = () => {
             className="security-shield-wrapper"
             style={{ transform: `translateY(-${offsetY}px)` }} 
           >
-            {/* Aquí enlazas la imagen del escudo metálico de image_f8be69.png */}
+        
             <img 
-              src="RUTA_A_TU_IMAGE_F8BE69.PNG" 
+              src="./shield.png" 
               alt="Revolut Secure Shield" 
               className="security-shield-img"
             />

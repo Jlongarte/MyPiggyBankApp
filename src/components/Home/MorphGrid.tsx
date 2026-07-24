@@ -1,11 +1,10 @@
-// src/features/home/components/MorphGrid.tsx
 interface Props { progress: number; }
 
 const MorphGrid: React.FC<Props> = ({ progress }) => {
   return (
     <div className="cards-grid-wrapper">
       
-      {/* Tarjeta Izquierda (image_dbb2a2.jpg) */}
+      {/* Tarjeta Izquierda*/}
       <div className="side-card left-card" style={{
         opacity: progress > 0.4 ? (progress - 0.4) * 2.5 : 0,
         transform: `translateX(${(1 - progress) * 100}px) translateY(${(1 - progress) * 50}px)`
@@ -17,7 +16,7 @@ const MorphGrid: React.FC<Props> = ({ progress }) => {
         </div>
       </div>
 
-      {/* Tarjeta Central (Mutación de image_dbb227.jpg a image_dbb2a2.jpg) */}
+      {/* Tarjeta Central */}
       <div className="center-card-morph" style={{
         width: progress === 1 ? "320px" : `calc(100vw - ${(1 - progress) * (100 - 22.2)}vw)`, 
         height: progress === 1 ? "420px" : `calc(100vh - ${(1 - progress) * (100 - 46.6)}vh)`,
@@ -40,7 +39,7 @@ const MorphGrid: React.FC<Props> = ({ progress }) => {
         </div>
       </div>
 
-      {/* Tarjeta Derecha (image_dbb2a2.jpg) */}
+      {/* Tarjeta Derecha */}
       <div className="side-card right-card" style={{
         opacity: progress > 0.4 ? (progress - 0.4) * 2.5 : 0,
         transform: `translateX(-${(1 - progress) * 100}px) translateY(${(1 - progress) * 50}px)`

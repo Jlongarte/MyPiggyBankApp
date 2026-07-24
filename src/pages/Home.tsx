@@ -43,8 +43,8 @@ const Home = () => {
         <SecuritySection />
         <VirtualCardsSection />
         <StocksSection />
-        <AiAssistantSection />
         <UserCounterSection />
+        <AiAssistantSection />
         <PlanSelectionSection />
         <FooterMenu/>
         

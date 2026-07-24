@@ -5,7 +5,7 @@ interface PlanCard {
   name: string;
   price: string;
   description: string;
-  isWide?: boolean; // Para las tarjetas Metal y Ultra que ocupan más espacio abajo
+  isWide?: boolean; 
 }
 
 const plansData: PlanCard[] = [
@@ -64,7 +64,7 @@ const PlanSelectionSection: React.FC = () => {
               
               <p className="plan-description">{plan.description}</p>
               
-              {/* EL BOTÓN INTERACTIVO DE LA FLECHA */}
+              {/* BOTÓN INTERACTIVO DE LA FLECHA */}
               <div className="plan-arrow-btn">
                 <svg 
                   viewBox="0 0 24 24" 
