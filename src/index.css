@@ -1,0 +1,110 @@
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+/* ==========================================================================
+   VARIABLES GLOBALES (:root)
+   ========================================================================== */
+:root {
+  /* --- FUENTES --- */
+  --font-main: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* --- COLORES MARCA --- */
+  --color-primary: #0052ff;          /* Azul eléctrico de alta conversión */
+  --color-primary-hover: #0040cc;
+  --color-secondary: #2182ca;        /* Azul corporativo / Hero */
+  --color-accent: #ccff00;           /* Neón de contraste */
+
+  /* --- MODO OSCURO / TARJETAS / NAVEGACIÓN --- */
+  --color-bg-dark: #000000;
+  --color-bg-card-dark: #111112;
+  --color-bg-elevated: #1c1c1e;
+
+  /* --- MODO CLARO / FONDOS --- */
+  --color-bg-light: #ffffff;
+  --color-bg-subtle: #f8f9fa;
+  --color-bg-card-light: #ffffff;
+
+  /* --- TEXTOS --- */
+  --color-text-dark: #111112;        /* Texto en fondos claros */
+  --color-text-muted: #767676;      /* Subtítulos y textos secundarios */
+  --color-text-light: #ffffff;       /* Texto en fondos oscuros */
+  --color-text-light-muted: rgba(255, 255, 255, 0.75);
+
+  /* --- BORDES Y SEPARADORES --- */
+  --border-light: 1px solid #e6e8ea;
+  --border-dark: 1px solid rgba(255, 255, 255, 0.1);
+  --border-glass: 1px solid rgba(255, 255, 255, 0.15);
+
+  /* --- RADIO DE BORDES (BORDER RADIUS) --- */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+
+  /* --- SOMBRAS (SHADOWS) --- */
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 12px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.12);
+  --shadow-dark: 0 30px 60px rgba(0, 0, 0, 0.5);
+
+  /* --- TRANSICIONES SUAVES --- */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   REINICIO Y ESTILOS BASE
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  background-color: var(--color-bg-light);
+  color: var(--color-text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* --- TIPOGRAFÍA BASE --- */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 700;
+  color: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --- BOTONES BASE --- */
+button {
+  font-family: var(--font-main);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/* --- CAMPOS DE ENTRADA (INPUTS) --- */
+input, select, textarea {
+  font-family: var(--font-main);
+  outline: none;
+}

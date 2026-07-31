@@ -1,0 +1,61 @@
+/* ==========================================================================
+   CRYPTO MARKET STYLES
+   ========================================================================== */
+
+.crypto-market-container {
+  padding: 20px;
+  font-family: var(--font-main);
+}
+
+.crypto-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.crypto-coin-card {
+  border: var(--border-light);
+  padding: 15px;
+  border-radius: var(--radius-sm);
+  min-width: 200px;
+  background-color: var(--color-bg-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.crypto-coin-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: var(--color-text-dark);
+}
+
+/* Clases dinámicas para el cambio de precio */
+.crypto-change {
+  font-weight: bold;
+}
+
+.crypto-change.positive {
+  color: #4caf50; /* Verde */
+}
+
+.crypto-change.negative {
+  color: #f44336; /* Rojo */
+}
+
+.btn-buy {
+  padding: 8px 12px;
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  font-family: var(--font-main);
+  font-weight: 600;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-buy:hover {
+  background-color: var(--color-primary-hover);
+  transform: scale(1.02);
+}

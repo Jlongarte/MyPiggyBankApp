@@ -1,0 +1,43 @@
+/* ==========================================================================
+   BUTTONS (REGISTER & VARIANTS)
+   ========================================================================== */
+
+.pb-btn-register {
+  border: none;
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  will-change: transform;
+  transition: transform var(--transition-normal), 
+              background-color var(--transition-fast), 
+              color var(--transition-fast),
+              box-shadow var(--transition-fast);
+}
+
+.btn-variant-white {
+  background-color: var(--color-bg-light);
+  color: var(--color-bg-dark);
+}
+
+.btn-variant-white:hover {
+  background-color: #f4f4f6;
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+}
+
+.btn-variant-black {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+}
+
+.btn-variant-black:hover {
+  background-color: #191919;
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}

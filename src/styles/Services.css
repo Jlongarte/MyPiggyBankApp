@@ -1,0 +1,83 @@
+/* ==========================================================================
+   SERVICES STYLES
+   ========================================================================== */
+
+.services-container {
+  padding: 20px;
+  font-family: var(--font-main);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contacts-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.contact-card {
+  border: var(--border-light);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  min-width: 180px;
+  text-align: center;
+  background-color: var(--color-bg-light);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 auto 10px auto;
+}
+
+.transfer-box {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  background-color: #f0f7ff;
+  max-width: 400px;
+}
+
+.transfer-box h4 {
+  margin-top: 0;
+  color: var(--color-primary-hover);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--color-text-dark);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: var(--border-light);
+  border-radius: 4px;
+  font-family: var(--font-main);
+  outline: none;
+}

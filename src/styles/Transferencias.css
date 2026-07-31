@@ -1,0 +1,371 @@
+/* ==========================================================================
+   ESTILOS NUEVOS VISTA TRANSFERENCIAS (Estilo Revolut Pro v2)
+   ========================================================================== */
+
+.transfers-container-modern {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 32px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .transfers-container-modern {
+    grid-template-columns: 1fr;
+  }
+}
+
+.transfers-main-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Pestañas de modo (Enviar / Solicitar) */
+.transfers-mode-tabs {
+  display: flex;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 4px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mode-tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mode-tab-btn.active {
+  background: #ffffff;
+  color: #020611;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Tarjeta contenedora de formulario */
+.transfer-card-clean {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.revolut-input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.revolut-input-box label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input-currency-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.revolut-input-box input {
+  background: #020611;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: #ffffff;
+  font-size: 1.05rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.revolut-input-box input:focus {
+  border-color: #007aff;
+}
+
+.currency-tag {
+  position: absolute;
+  right: 16px;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.btn-revolut-primary-action {
+  background: #ffffff;
+  color: #020611;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  margin-top: 6px;
+}
+
+.btn-revolut-primary-action:hover {
+  background: #e2e8f0;
+}
+
+/* Sección de contactos frecuentes ampliados */
+.contacts-section-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.section-internal-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.contacts-grid-extended {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .contacts-grid-extended {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.contact-pill-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.contact-pill-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.contact-avatar-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.c-name {
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.c-user {
+  color: #64748b;
+  font-size: 0.72rem;
+}
+
+/* Columna derecha: Historial de transferencias */
+.transfers-history-column {
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: fit-content;
+}
+
+.transfers-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.history-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.history-item-row:last-child {
+  border-bottom: none;
+}
+
+.history-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.history-icon-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.history-icon-badge.sent {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.history-icon-badge.received {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+.history-icon-badge.requested {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+}
+
+.history-concept {
+  color: #ffffff;
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.history-date {
+  color: #64748b;
+  font-size: 0.72rem;
+}
+
+.history-amount {
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.history-amount.positive {
+  color: #22c55e;
+}
+
+.history-amount.negative {
+  color: #ffffff;
+}
+
+.no-history-text {
+  color: #64748b;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* POPUP MODAL STYLES */
+.transfer-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(2, 6, 17, 0.8);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.transfer-popup-card {
+  background: #0c1220;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 340px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  animation: popupScale 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes popupScale {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.popup-icon-success {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #22c55e;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.transfer-popup-card h3 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.btn-popup-close {
+  background: #ffffff;
+  color: #020611;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+
+.btn-popup-close:hover {
+  background: #e2e8f0;
+}
