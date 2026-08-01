@@ -40,6 +40,9 @@
 .crypto-change.negative {
   color: #f44336; /* Rojo */
 }
+.ws-live-badge {
+  text-align: center;
+}
 
 .btn-buy {
   padding: 8px 12px;

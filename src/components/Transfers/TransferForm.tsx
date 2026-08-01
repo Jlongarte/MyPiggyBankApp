@@ -27,19 +27,19 @@ export const TransferForm: React.FC<TransferFormProps> = ({
     <form onSubmit={handleSubmit} className="transfer-card-clean">
       <div className="revolut-input-box">
         <label>
-          {activeTab === "send" ? "Enviar a (Nombre, @usuario o IBAN)" : "Solicitar a (Nombre o @usuario)"}
+          {activeTab === "send" ? "Send to (Name, @username or IBAN)" : "Request from (Name or @username)"}
         </label>
         <input 
           type="text" 
           value={recipient} 
           onChange={(e) => onRecipientChange(e.target.value)} 
-          placeholder="Ej. Janire Longarte o @usuario" 
+          placeholder="Ex. @username" 
           required 
         />
       </div>
 
       <div className="revolut-input-box">
-        <label>Cantidad (€)</label>
+        <label>Amount (€)</label>
         <div className="input-currency-wrapper">
           <input 
             type="number" 
@@ -54,7 +54,7 @@ export const TransferForm: React.FC<TransferFormProps> = ({
       </div>
 
       <button type="submit" className="btn-revolut-primary-action">
-        {activeTab === "send" ? "Enviar transferencia" : "Solicitar dinero"}
+        {activeTab === "send" ? "Send Transfer" : "Request Money"}
       </button>
     </form>
   );

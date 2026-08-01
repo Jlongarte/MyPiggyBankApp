@@ -780,3 +780,154 @@
 .status-success {
   color: #22c55e;
 }
+
+/* ==========================================================================
+   ADAPTABILIDAD RESPONSIVE (TABLET & MOBILE) - DASHBOARD Y MODALES
+   ========================================================================== */
+
+/* --- TABLET (min-width: 768px y max-width: 1023px) --- */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .revolut-sidebar {
+    width: 80px;
+    padding: 20px 0;
+    gap: 30px;
+  }
+
+  .revolut-main-container {
+    padding: 24px 28px;
+  }
+
+  .revolut-dashboard-card {
+    padding: 28px;
+  }
+
+  .balance-main-amount {
+    font-size: 2.3rem;
+  }
+
+  /* Ajustes en modales para tablets */
+  .profile-modal-card {
+    max-width: 480px;
+    padding: 24px;
+  }
+}
+
+/* --- MÓVIL (max-width: 767px) --- */
+@media (max-width: 767px) {
+  /* Layout general pasa a columna vertical: barra lateral pasa abajo o arriba */
+  .revolut-layout {
+    flex-direction: column-reverse;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* La barra lateral (Sidebar) se convierte en una barra de navegación inferior móvil estilo app */
+  .revolut-sidebar {
+    width: 100vw;
+    height: 65px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 10px;
+    border-right: none;
+    border-top: var(--border-dark);
+    background-color: #030a16;
+    z-index: 100;
+  }
+
+  .revolut-sidebar-logo {
+    display: none; /* Ocultar logo grande del sidebar en móvil para ganar espacio */
+  }
+
+  .revolut-sidebar-nav {
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 0;
+    width: 100%;
+  }
+
+  .nav-item-btn {
+    padding: 4px 0;
+    gap: 2px;
+  }
+
+  .nav-icon {
+    font-size: 1.2rem;
+  }
+
+  .nav-text {
+    font-size: 0.65rem;
+  }
+
+  /* Contenedor principal ocupa todo el alto superior */
+  .revolut-main-container {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    width: 100vw;
+  }
+
+  .revolut-top-bar {
+    margin-bottom: 16px;
+  }
+
+  .revolut-page-title {
+    font-size: 1.35rem;
+  }
+
+  .btn-revolut-secondary {
+    padding: 6px 12px;
+    font-size: 0.78rem;
+  }
+
+  .user-avatar-badge {
+    width: 32px;
+    height: 32px;
+    font-size: 0.75rem;
+  }
+
+  .revolut-dashboard-card {
+    padding: 16px;
+    border-radius: var(--radius-md);
+  }
+
+  /* Vistas internas adaptadas */
+  .balance-main-amount {
+    font-size: 1.9rem;
+  }
+
+  .form-grid-dual {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  /* Modales de perfil adaptados a pantalla completa o modal fluido en móvil */
+  .modal-backdrop-glass {
+    padding: 12px;
+    align-items: flex-end; /* Efecto hoja inferior o modal centrado limpio */
+  }
+
+  .profile-modal-card {
+    max-width: 100%;
+    max-height: 85vh;
+    padding: 20px 16px;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .profile-modal-actions {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .btn-save-profile, 
+  .btn-logout {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Drawer lateral de transacciones ocupa el 100% en móvil */
+  .tx-drawer-panel {
+    width: 100vw;
+    border-left: none;
+  }
+}

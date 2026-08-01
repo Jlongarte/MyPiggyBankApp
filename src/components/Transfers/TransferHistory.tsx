@@ -16,11 +16,11 @@ interface TransferHistoryProps {
 export const TransferHistory: React.FC<TransferHistoryProps> = ({ history }) => {
   return (
     <div className="transfers-history-column">
-      <span className="section-internal-title">Actividad de transferencias</span>
+      <span className="section-internal-title">Transfer History</span>
       
       <div className="transfers-history-list">
         {history.length === 0 ? (
-          <p className="no-history-text">No hay transferencias recientes</p>
+          <p className="no-history-text">No transfers to display</p>
         ) : (
           history.map((item) => (
             <div key={item.id} className="history-item-row">

@@ -16,7 +16,7 @@ export const TransferenciasView = ({ onTransfer }: TransferenciasViewProps) => {
   const [popupMessage, setPopupMessage] = useState<string | null>(null);
 
   const contacts: Contact[] = [
-    { name: "Janire Longarte", username: "@janire", avatar: "JL" },
+    { name: "Janire G", username: "@janire", avatar: "JG" },
     { name: "Carlos Mendoza", username: "@carlosm", avatar: "CM" },
     { name: "Sara Peláez", username: "@sara_p", avatar: "SP" },
     { name: "Alex Rivero", username: "@rivero", avatar: "AR" },

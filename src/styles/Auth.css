@@ -269,3 +269,97 @@
   text-decoration: none;
   margin-left: 4px;
 }
+
+/* ==========================================================================
+   ADAPTABILIDAD RESPONSIVE (TABLET & MOBILE)
+   ========================================================================== */
+
+/* --- TABLET (min-width: 768px y max-width: 1023px) --- */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .auth-page-wrapper {
+    padding: 20px;
+  }
+
+  .auth-card-glass.rect-wide-layout {
+    max-width: 90vw;
+    padding: 28px 32px;
+    max-height: 95vh;
+    overflow-y: auto;
+  }
+
+  /* Ajustar grids complejos a 2 columnas en tablet */
+  .form-grid-triple-wide,
+  .form-grid-address-quad {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .light-orb-primary {
+    width: 500px;
+    height: 500px;
+    filter: blur(100px);
+  }
+
+  .light-orb-secondary {
+    width: 450px;
+    height: 450px;
+    filter: blur(90px);
+  }
+}
+
+/* --- MÓVIL (max-width: 767px) --- */
+@media (max-width: 767px) {
+  .auth-page-wrapper {
+    padding: 12px;
+    justify-content: flex-start;
+    overflow-y: auto;
+  }
+
+  .auth-card-glass.rect-wide-layout {
+    max-width: 100%;
+    max-height: none;
+    padding: 20px 16px;
+    border-radius: 16px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  /* Forzar todas las rejillas a 1 sola columna en móvil para máxima usabilidad */
+  .form-grid-dual,
+  .form-grid-triple-wide,
+  .form-grid-address-quad {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .form-address-fieldset {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .auth-title {
+    font-size: 1.35rem;
+  }
+
+  .auth-subtitle {
+    font-size: 0.78rem;
+  }
+
+  /* El footer de acción (botón y enlace) se apila en vertical en pantallas estrechas */
+  .form-footer-action {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .btn-auth-submit-wide {
+    width: 100%;
+    height: 44px; /* Un poco más alto para facilitar el toque táctil */
+  }
+
+  /* Reducir orbes de luz para evitar desbordamientos pesados en móvil */
+  .light-orb-primary,
+  .light-orb-secondary {
+    display: none; /* Opcional: Ocultar o reducir drásticamente para rendimiento móvil */
+  }
+}

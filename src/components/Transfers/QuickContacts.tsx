@@ -14,7 +14,7 @@ interface QuickContactsProps {
 export const QuickContacts: React.FC<QuickContactsProps> = ({ contacts, onSelectContact }) => {
   return (
     <div className="contacts-section-wrapper">
-      <span className="section-internal-title">Contactos frecuentes</span>
+      <span className="section-internal-title">Quick Contacts</span>
       <div className="contacts-grid-extended">
         {contacts.map((c, index) => (
           <button 

@@ -35,7 +35,7 @@ export const InicioView = () => {
       amount: "-6,51 £", 
       secondaryAmount: "-382,50 TRY", 
       isPositive: false, 
-      logoUrl: "./emirates.png",
+      logoUrl: "./fly.jpg",
       address: "Aeropuerto Adolfo Suárez T4, Madrid"
     },
     { 
@@ -55,7 +55,7 @@ export const InicioView = () => {
       amount: "-0,96 £", 
       secondaryAmount: "-4,75 AED", 
       isPositive: false, 
-      icon: "✈️",
+      logoUrl: "./duty-free.png",
       address: "Terminal 3, Dubai International Airport"
     },
     { 

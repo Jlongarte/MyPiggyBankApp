@@ -12,13 +12,13 @@ export const TransferTabs: React.FC<TransferTabsProps> = ({ activeTab, onTabChan
         className={`mode-tab-btn ${activeTab === "send" ? "active" : ""}`}
         onClick={() => onTabChange("send")}
       >
-        Enviar dinero
+        Send Transfer
       </button>
       <button 
         className={`mode-tab-btn ${activeTab === "request" ? "active" : ""}`}
         onClick={() => onTabChange("request")}
       >
-        Solicitar dinero
+        Request Money
       </button>
     </div>
   );

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { DashboardSidebar, type TabType } from "./DashboardSidebar"
 
@@ -13,10 +13,39 @@ import { UserProfileModal } from "../../components/Dashboard/UserProfileModal";
 import "../../styles/Dashboard.css";
 import "../../styles/AssistanceView.css";
 
+interface UserData {
+  name?: string;
+  avatar?: string;
+  [key: string]: any;
+}
+
 export const DashBoardPage = () => {
   const [activeTab, setActiveTab] = useState<TabType>("inicio");
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+  const [currentUser, setCurrentUser] = useState<UserData>({});
   const navigate = useNavigate();
+
+  // Cargar y escuchar actualizaciones del usuario actual desde el localStorage
+  useEffect(() => {
+    const fetchUserData = () => {
+      const storedUser = localStorage.getItem("currentUser");
+      if (storedUser) {
+        try {
+          setCurrentUser(JSON.parse(storedUser));
+        } catch (error) {
+          console.error("Error parsing user data:", error);
+        }
+      }
+    };
+
+    fetchUserData();
+
+    // Escuchar el evento de actualización de perfil en tiempo real
+    window.addEventListener("userUpdated", fetchUserData);
+    return () => {
+      window.removeEventListener("userUpdated", fetchUserData);
+    };
+  }, []);
 
   // Función para cerrar sesión de usuario
   const handleLogout = () => {
@@ -36,6 +65,17 @@ export const DashBoardPage = () => {
     }
   };
 
+  // Obtener iniciales si no hay foto configurada
+  const getInitials = (name?: string) => {
+    if (!name) return "JD";
+    return name
+      .split(" ")
+      .map((n) => n[0])
+      .join("")
+      .toUpperCase()
+      .slice(0, 2);
+  };
+
   return (
     <div className="revolut-layout">
       {/* Barra lateral de navegación encapsulada */}
@@ -51,12 +91,28 @@ export const DashBoardPage = () => {
               Log out
             </button>
 
+            {/* Avatar o foto de perfil interactiva */}
             <div
               className="user-avatar-badge"
               onClick={() => setIsProfileModalOpen(true)}
-              style={{ cursor: "pointer" }}
+              style={{ 
+                cursor: "pointer", 
+                overflow: "hidden", 
+                display: "flex", 
+                alignItems: "center", 
+                justifyContent: "center",
+                padding: 0
+              }}
             >
-              JD
+              {currentUser?.avatar ? (
+                <img 
+                  src={currentUser.avatar} 
+                  alt={currentUser.name || "User"} 
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }} 
+                />
+              ) : (
+                getInitials(currentUser?.name)
+              )}
             </div>
           </div>
         </header>
@@ -76,7 +132,10 @@ export const DashBoardPage = () => {
         <UserProfileModal
           isOpen={isProfileModalOpen}
           onClose={() => setIsProfileModalOpen(false)}
-          onUserUpdated={() => console.log("User updated successfully")}
+          onUserUpdated={() => {
+            const updated = localStorage.getItem("currentUser");
+            if (updated) setCurrentUser(JSON.parse(updated));
+          }}
         />
       )}
     </div>

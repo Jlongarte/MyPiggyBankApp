@@ -369,3 +369,16 @@
 .btn-popup-close:hover {
   background: #e2e8f0;
 }
+
+/* Móvil */
+@media (max-width: 767px) {
+  /* Estilos para móvil */
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .revolut-dashboard-card{
+    display: flex!important;
+    flex-direction: column;
+  }
+}

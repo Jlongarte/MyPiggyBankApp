@@ -1,6 +1,7 @@
+/* ==========================================================================
+   ESTILOS DE LA BARRA DE NAVEGACIÓN
+   ========================================================================== */
 
-
-/* --- CONTENEDOR DE LA BARRA DE INICIO --- */
 .home-navbar-wrapper {
   position: absolute;
   top: 0;
@@ -57,7 +58,6 @@
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* LADO DERECHO: BOTONES DE ACCIÓN */
 .nav-right-container {
   display: flex;
   align-items: center;
@@ -93,15 +93,16 @@
   background-color: #f0f0f0;
 }
 
-/* --- MEGA MENU DESPLEGABLE GLASSMORPHISM MÁS CLARO Y ACCESIBLE --- */
+/* ==========================================================================
+   MEGA MENÚ DESPLEGABLE
+   ========================================================================== */
+
 .mega-menu-glass {
   position: absolute;
   top: 48px;
   left: 0;
   width: 100%;
   max-width: 1100px;
-  
-  /* GLASSMORPHISM MÁS CLARO Y LUMINOSO */
   background: rgba(36, 35, 35, 0.54);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
@@ -111,8 +112,6 @@
   box-sizing: border-box;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25), 
               inset 0 1px 1px rgba(255, 255, 255, 0.3);
-  
-  /* Animación de entrada/salida suave */
   opacity: 0;
   visibility: hidden;
   transform: translateY(-8px);
@@ -120,7 +119,6 @@
   pointer-events: none;
 }
 
-/* PUENTE INVISIBLE: Evita que el menú se cierre al desplazar el cursor */
 .mega-menu-glass::before {
   content: "";
   position: absolute;
@@ -177,7 +175,6 @@
   margin-top: 24px;
 }
 
-/* ENLACES Y TRANSICIÓN DE FLECHA HOVER */
 .dropdown-link {
   color: var(--color-text-light);
   text-decoration: none;
@@ -196,7 +193,6 @@
   transform: translateX(3px);
 }
 
-/* Flecha oculta por defecto */
 .hover-arrow {
   opacity: 0;
   transform: translateX(-8px);
@@ -206,8 +202,178 @@
   font-weight: bold;
 }
 
-/* Aparece suavemente a la derecha al hacer hover */
 .dropdown-link:hover .hover-arrow {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* ==========================================================================
+   ESTILOS RESPONSIVE TABLET
+   ========================================================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .home-navbar-wrapper {
+    padding: 24px;
+    position: absolute;
+  }
+
+  .nav-left-container {
+    gap: 16px;
+  }
+
+  .home-logo {
+    height: 80px;
+  }
+
+  .mega-menu-glass {
+    max-width: 90vw;
+    left: -50px;
+    padding: 24px;
+  }
+
+  .mega-menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* ==========================================================================
+   ESTILOS RESPONSIVE MÓVIL
+   ========================================================================== */
+
+.mobile-menu-toggle,
+.mobile-drawer-menu {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .home-navbar-wrapper {
+    padding: 20px;
+    position: absolute;
+    background: transparent;
+  }
+
+  .home-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav-left-container {
+    display: flex;
+    align-items: center;
+    width: auto;
+  }
+
+  .home-logo {
+    height: 65px;
+    padding-top: 0;
+    object-fit: contain;
+  }
+
+  .nav-links-menu,
+  .nav-right-container {
+    display: none !important;
+  }
+
+  .mobile-menu-toggle {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 23px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002;
+  }
+
+  .mobile-menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2.5px;
+    background-color: var(--color-text-light, #ffffff);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .mega-menu-glass {
+    display: none !important;
+  }
+
+  .mobile-drawer-menu {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100dvh;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border-left: var(--border-glass, 1px solid rgba(255, 255, 255, 0.1));
+    padding: 80px 24px 32px 24px;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1001;
+    box-shadow: -20px 0 50px rgba(0, 0, 0, 0.5);
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .mobile-drawer-menu.open {
+    right: 0;
+  }
+
+  .mobile-drawer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile-drawer-item {
+    color: var(--color-text-light, #ffffff);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .mobile-drawer-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-drawer-actions .btn-nav-login,
+  .mobile-drawer-actions .btn-nav-signup {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    border-radius: var(--radius-pill);
+    font-size: 0.95rem;
+    box-sizing: border-box;
+  }
+
+  .mobile-drawer-actions .btn-nav-login {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .mobile-drawer-actions .btn-nav-signup {
+    background: var(--color-bg-light, #ffffff);
+    color: var(--color-bg-dark, #0b1220);
+    font-weight: 700;
+    text-decoration: none;
+  }
 }

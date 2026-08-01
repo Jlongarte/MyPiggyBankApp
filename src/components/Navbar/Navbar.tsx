@@ -6,6 +6,7 @@ import "../../styles/Navbar.css";
 
 const Navbar: React.FC = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <header className="home-navbar-wrapper">
@@ -41,7 +42,7 @@ const Navbar: React.FC = () => {
           </ul>
         </div>
 
-        {/* Lado derecho: Acciones de autenticación */}
+        {/* Lado derecho: Acciones de autenticación para escritorio */}
         <div className="nav-right-container">
           <Link to="/login" className="btn-nav-login">
             Log in
@@ -51,7 +52,36 @@ const Navbar: React.FC = () => {
           </Link>
         </div>
 
-        {/* Mega menú desplegable encapsulado */}
+        {/* Botón hamburguesa visible solo en móvil */}
+        <button 
+          className="mobile-menu-toggle" 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        {/* Panel lateral en Glassmorphism para móvil */}
+        <div className={`mobile-drawer-menu ${isMobileMenuOpen ? "open" : ""}`}>
+          <ul className="mobile-drawer-links">
+            <Link to="/" className="mobile-drawer-item" onClick={() => setIsMobileMenuOpen(false)}>Personal</Link>
+            <Link to="/" className="mobile-drawer-item" onClick={() => setIsMobileMenuOpen(false)}>Business</Link>
+            <Link to="/" className="mobile-drawer-item" onClick={() => setIsMobileMenuOpen(false)}>Company</Link>
+          </ul>
+
+          <div className="mobile-drawer-actions">
+            <Link to="/login" className="btn-nav-login" onClick={() => setIsMobileMenuOpen(false)}>
+              Log in
+            </Link>
+            <Link to="/register" className="btn-nav-signup" onClick={() => setIsMobileMenuOpen(false)}>
+              Sign up
+            </Link>
+          </div>
+        </div>
+
+        {/* Mega menú desplegable de escritorio */}
         <div className={`mega-menu-glass ${activeDropdown ? "open" : ""}`}>
           <MegaMenuContent />
         </div>

@@ -1,7 +1,7 @@
 // src/components/Dashboard/UserProfileModal.tsx
 import { useState, useEffect, FormEvent, ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
-import { ModalAccountData } from ".ModalAccountData";
+import { ModalAccountData } from "./ModalAccountData";
 import { ModalAccountSettings } from "./ModalAccountSettings";
 
 interface UserProfileModalProps {
@@ -65,6 +65,10 @@ export const UserProfileModal = ({ isOpen, onClose, onUserUpdated }: UserProfile
   const handleSaveProfile = (e: FormEvent) => {
     e.preventDefault();
     updateUserInStorage(userData);
+    
+    // Disparamos el evento global para avisar al DashBoardPage en tiempo real
+    window.dispatchEvent(new Event("userUpdated"));
+
     onUserUpdated();
     alert("Profile successfully updated!");
     onClose();
@@ -94,6 +98,9 @@ export const UserProfileModal = ({ isOpen, onClose, onUserUpdated }: UserProfile
     const updatedUser = { ...userData, password: passwords.newPassword };
     setUserData(updatedUser);
     updateUserInStorage(updatedUser);
+
+    // Disparamos el evento global también por si acaso
+    window.dispatchEvent(new Event("userUpdated"));
 
     setPassSuccess(true);
     setPasswords({ oldPassword: "", newPassword: "", confirmPassword: "" });
