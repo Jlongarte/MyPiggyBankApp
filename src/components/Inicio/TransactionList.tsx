@@ -10,19 +10,39 @@ export interface Transaction {
   isPositive: boolean;
   icon?: string;
   logoUrl?: string;
+  address?: string;      // Dirección simulada para el mapa
+  locationCoords?: string; // Coordenadas o query para el mapa embebido
 }
 
 interface TransactionListProps {
   transactions: Transaction[];
+  selectedTxId?: string;
+  onSelectTransaction: (tx: Transaction) => void;
   onViewAll?: () => void;
 }
 
-export const TransactionList: React.FC<TransactionListProps> = ({ transactions, onViewAll }) => {
+export const TransactionList: React.FC<TransactionListProps> = ({ 
+  transactions, 
+  selectedTxId, 
+  onSelectTransaction, 
+  onViewAll 
+}) => {
   return (
     <div className="revolut-dashboard-card" style={{ background: "transparent", border: "none", padding: "0" }}>
       <div className="revolut-tx-list">
         {transactions.map((tx) => (
-          <div key={tx.id} className="revolut-tx-row" style={{ background: "transparent" }}>
+          <div 
+            key={tx.id} 
+            className={`revolut-tx-row ${selectedTxId === tx.id ? "active-tx" : ""}`} 
+            onClick={() => onSelectTransaction(tx)}
+            style={{ 
+              background: selectedTxId === tx.id ? "rgba(255, 255, 255, 0.04)" : "transparent",
+              cursor: "pointer",
+              borderRadius: "12px",
+              padding: "10px 12px",
+              transition: "background 0.2s ease"
+            }}
+          >
             <div className="tx-row-left">
               {tx.logoUrl ? (
                 <div className="tx-logo-circle" style={{ 

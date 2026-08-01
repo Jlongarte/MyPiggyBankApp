@@ -1,3 +1,5 @@
+// src/components/Dashboard/BalanceChart.tsx
+import React from "react";
 import ReactECharts from "echarts-for-react";
 
 export type TimeRange = "1W" | "1M" | "6M" | "1Y";
@@ -13,18 +15,14 @@ interface BalanceChartProps {
   };
 }
 
-export const BalanceChart = ({ timeRange, onTimeRangeChange, currentData }: BalanceChartProps) => {
-  
-  // Configuración de ECharts para el flujo de caja
+export const BalanceChart: React.FC<BalanceChartProps> = ({ timeRange, onTimeRangeChange, currentData }) => {
   const getOption = () => {
     return {
       backgroundColor: "transparent",
       animationDuration: 800,
       tooltip: {
         trigger: "axis",
-        axisPointer: {
-          type: "shadow" // Resalta la columna al pasar el cursor
-        },
+        axisPointer: { type: "shadow" },
         backgroundColor: "rgba(11, 18, 32, 0.95)",
         borderColor: "rgba(255, 255, 255, 0.12)",
         borderWidth: 1,
@@ -121,7 +119,6 @@ export const BalanceChart = ({ timeRange, onTimeRangeChange, currentData }: Bala
 
   return (
     <>
-      {/* Cabecera y selector temporal */}
       <div className="chart-header-row" style={{ marginTop: "24px" }}>
         <div>
           <h3 className="section-internal-title" style={{ margin: 0 }}>Cash Flow Comparison</h3>
@@ -141,7 +138,6 @@ export const BalanceChart = ({ timeRange, onTimeRangeChange, currentData }: Bala
         </div>
       </div>
 
-      {/* Renderizado del gráfico de barras dobles */}
       <div className="echarts-glass-container">
         <ReactECharts option={getOption()} style={{ height: "380px", width: "100%" }} />
       </div>

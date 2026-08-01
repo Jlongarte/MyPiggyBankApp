@@ -1,5 +1,5 @@
 // src/pages/RegisterPage.tsx
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, type ChangeEvent, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlassCard3D } from "../../components/Auth/GlassCard3D";
 import { RegisterFormFields } from "./RegisterFormFields";
@@ -74,10 +74,7 @@ export const RegisterPage = () => {
       <div className="auth-ambient-light light-orb-primary" />
       <div className="auth-ambient-light light-orb-secondary" />
 
-      {/* Cabecera superior con marca */}
-      <div className="auth-top-header">
-        <div className="auth-brand-logo">The Piggy Bank</div>
-      </div>
+     
 
       <GlassCard3D>
         <form onSubmit={handleSubmit} className="auth-form-layout">

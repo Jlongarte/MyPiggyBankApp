@@ -1,11 +1,12 @@
+// src/components/Dashboard/BalanceView.tsx
 import { useState } from "react";
 import { BalanceKpiGrid } from "./BalanceKpiGrid";
 import { BalanceChart, type TimeRange } from "./BalanceChart";
+import "../../../styles/Balance.css";
 
 export const BalanceView = () => {
   const [timeRange, setTimeRange] = useState<TimeRange>("1M");
 
-  // Obtener datos comparativos según el filtro temporal seleccionado
   const getComparativeData = () => {
     switch (timeRange) {
       case "1W":
@@ -42,21 +43,18 @@ export const BalanceView = () => {
 
   const currentData = getComparativeData();
 
-  // Calcular totales para los KPIs
   const totalIncome = currentData.income.reduce((a, b) => a + b, 0);
   const totalExpenses = currentData.expenses.reduce((a, b) => a + b, 0);
   const netTotal = totalIncome - totalExpenses;
 
   return (
     <div className="view-balance-pro">
-      {/* Tarjetas KPI de resumen superior */}
       <BalanceKpiGrid
         totalIncome={totalIncome}
         totalExpenses={totalExpenses}
         netTotal={netTotal}
       />
 
-      {/* Gráfico y filtros temporales */}
       <BalanceChart
         timeRange={timeRange}
         onTimeRangeChange={setTimeRange}
