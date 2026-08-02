@@ -14,7 +14,6 @@ import FooterMenu from "../../components/Home/FooterMenu";
 import "../../styles/Home.css";
 
 const Home = () => {
-  // Obtener el progreso de desplazamiento mediante nuestro hook personalizado
   const progress = useScrollProgress(700);
 
   return (
@@ -23,9 +22,15 @@ const Home = () => {
       <div className="scroll-track">
         <div 
           className="sticky-viewport" 
-          style={{ backgroundColor: progress > 0.5 ? "#ffffff" : "#2182ca" }}
+          style={{ 
+            backgroundColor: progress > 0.4 ? "#ffffff" : "transparent",
+            backgroundImage: progress <= 0.4 ? "linear-gradient(rgba(3, 10, 22, 0.4), rgba(3, 10, 22, 0.6)), url('/hero.jpeg')" : "none",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            transition: "background-color 0.4s ease"
+          }}
         >
-          {/* Repartimos el progreso a cada pieza del puzle visual */}
           <HeroText progress={progress} />
           <GridText progress={progress} />
           <MorphGrid progress={progress} />
@@ -34,8 +39,9 @@ const Home = () => {
 
       {/* Secciones informativas de la landing page */}
       <SavingsTabsSection />
-      <SecuritySection />
       <VirtualCardsSection />
+      <SecuritySection />
+      
       <StocksSection />
       <UserCounterSection />
       <AiAssistantSection />

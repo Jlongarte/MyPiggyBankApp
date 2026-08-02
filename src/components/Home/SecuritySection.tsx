@@ -5,22 +5,20 @@ const SecuritySection: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-      
-      // Calculamos la posición del componente respecto a la pantalla
-      const rect = sectionRef.current.getBoundingClientRect();
-      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-      
-      if (isVisible) {
-        // Generamos un desfase suave basado en el scroll interno de esta sección
-        setOffsetY((window.innerHeight - rect.top) * 0.08);
-      }
-    };
+  const handleScroll = () => {
+    if (!sectionRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    
+    if (isVisible) {
+      // Multiplicador alto para que el scroll mueva el escudo de forma drástica
+      setOffsetY((window.innerHeight - rect.top) * 0.25);
+    }
+  };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  window.addEventListener("scroll", handleScroll, { passive: true });
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
   return (
     <section className="revolut-security-section" ref={sectionRef}>
@@ -35,13 +33,12 @@ const SecuritySection: React.FC = () => {
           <button className="btn-security-learn">Learn more</button>
         </div>
 
-        {/* Bloque Derecho: El Escudo 3D con efecto Parallax sutil */}
+        {/* Bloque Derecho: El Escudo 3D con efecto Parallax dramático */}
         <div className="security-visual-block">
           <div 
             className="security-shield-wrapper"
             style={{ transform: `translateY(-${offsetY}px)` }} 
           >
-        
             <img 
               src="./shield.png" 
               alt="Revolut Secure Shield" 

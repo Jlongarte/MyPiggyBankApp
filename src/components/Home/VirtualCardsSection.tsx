@@ -1,5 +1,4 @@
-// src/components/Home/VirtualCardsSection.tsx
-import React from "react";
+
 
 const VirtualCardsSection: React.FC = () => {
   return (
@@ -24,9 +23,8 @@ const VirtualCardsSection: React.FC = () => {
             muted 
             playsInline
           >
-            {/* Reemplaza este enlace con la ruta de tu vídeo de tarjetas virtuales */}
             <source src="./CC2.mp4" type="video/mp4" />
-            Tu navegador không soporta la reproducción de vídeos.
+            Tu navegador no soporta la reproducción de vídeos.
           </video>
         </div>
 

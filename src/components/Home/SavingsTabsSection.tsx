@@ -16,7 +16,7 @@ const tabs: TabData[] = [
     title: "Save with a 5% AER (variable)",
     subtitle: "Grow your money with interest paid every day. And withdraw anytime you need, with no penalties or fees.",
     amount: "£1,326",
-    bgImage: "https://images.pexels.com/photos/20504932/pexels-photo-20504932.jpeg?_gl=1*fnh4w2*_ga*MTg2NjU5OTA5OC4xNzgzMDg1ODky*_ga_8JE65Q40S6*czE3ODMwODU4OTEkbzEkZzEkdDE3ODMwODU5MzYkajE1JGwwJGgw" 
+    bgImage: "./hiker.webp"
   },
   {
     id: "wedding",
@@ -24,7 +24,7 @@ const tabs: TabData[] = [
     title: "Save for your big day",
     subtitle: "Set up a shared pool or a personal vault to easily hit your wedding goals together, with daily returns.",
     amount: "€5,400",
-    bgImage: "https://images.pexels.com/photos/30013220/pexels-photo-30013220.jpeg?_gl=1*1ciuxz3*_ga*MTg2NjU5OTA5OC4xNzgzMDg1ODky*_ga_8JE65Q40S6*czE3ODMwODU4OTEkbzEkZzEkdDE3ODMwODU5MDkkajQyJGwwJGgw" 
+    bgImage: "./wedding.webp" 
   },
   {
     id: "moving",
@@ -32,7 +32,7 @@ const tabs: TabData[] = [
     title: "Your dream house is closer",
     subtitle: "Keep your moving budget organized in multi-currency sub-accounts with instant access whenever plans change.",
     amount: "$4,780",
-    bgImage: "https://images.pexels.com/photos/4545197/pexels-photo-4545197.jpeg?auto=compress&h=491&dpr=1" 
+    bgImage: "./family.webp" 
   }
 ];
 
@@ -79,7 +79,6 @@ const handleScroll = () => {
         <div className="savings-top-content">
           <h2 className="savings-title">{tabs[activeIdx].title}</h2>
           <p className="savings-subtitle">{tabs[activeIdx].subtitle}</p>
-          <span className="savings-disclaimer">Open an Instant Access Savings account between 5 June 2026 and 4 August 2026 to benefit from the boosted rate. T&Cs apply.</span>
           <button className="btn-explore-savings">Explore Savings</button>
         </div>
 
