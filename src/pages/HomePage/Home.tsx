@@ -24,7 +24,7 @@ const Home = () => {
           className="sticky-viewport" 
           style={{ 
             backgroundColor: progress > 0.4 ? "#ffffff" : "transparent",
-            backgroundImage: progress <= 0.4 ? "linear-gradient(rgba(3, 10, 22, 0.4), rgba(3, 10, 22, 0.6)), url('/hero.jpeg')" : "none",
+            backgroundImage: progress <= 0.4 ? "url('/hero.jpeg')" : "none",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",

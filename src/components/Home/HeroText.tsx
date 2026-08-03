@@ -14,7 +14,7 @@ const HeroText: React.FC<Props> = ({ progress }) => {
           transform: `translateY(-${progress * 80}px)`,
         }}
       >
-        <h1 className="hero-title">Banking and much more</h1>
+        <h1 className="hero-title">Banking & much more</h1>
         <p className="hero-subtitle">
           Whether you're at home or traveling, let PiggyBank exceed your banking
           expectations. Sign up with just one tap.
