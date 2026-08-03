@@ -77,9 +77,9 @@ const handleScroll = () => {
 
         {/* ================= CONTENIDO TEXTO SUPERIOR ================= */}
         <div className="savings-top-content">
-          <h2 className="savings-title">{tabs[activeIdx].title}</h2>
+          <h2 className="second-title">{tabs[activeIdx].title}</h2>
           <p className="savings-subtitle">{tabs[activeIdx].subtitle}</p>
-          <button className="btn-explore-savings">Explore Savings</button>
+          
         </div>
 
         {/* ================= TARJETA CENTRAL GLASSMORPHISM ================= */}

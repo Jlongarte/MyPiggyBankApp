@@ -28,7 +28,7 @@ const SecuritySection: React.FC = () => {
         <div className="security-text-block">
           <h2 className="security-title">Your money’s safe <br /> space</h2>
           <p className="security-subtitle">
-            With Revolut Secure, you’re entering the new era of money security — where your bank account has 24/7 protection through proactive, purpose-built defences and a team of specialists.
+            With PiggyBank Secure, you’re entering the new era of money security — where your bank account has 24/7 protection through proactive, purpose-built defences and a team of specialists.
           </p>
           <button className="btn-security-learn">Learn more</button>
         </div>

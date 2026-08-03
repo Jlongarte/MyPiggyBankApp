@@ -71,11 +71,11 @@ const AiAssistantSection: React.FC = () => {
 
         {/* TEXTO SUPERIOR */}
         <div className="ai-top-content">
-          <h2 className="ai-title">Ask, and AIR makes it happen</h2>
+          <h2 className="second-title">Ask, and AI makes it happen</h2>
           <p className="ai-subtitle">
-            AI by Revolut, AIR, is your 24/7 personal assistant. Just open your app, swipe, and ask away.
+            AI by PiggyBank, AIR, is your 24/7 personal assistant. Just open your app, swipe, and ask away.
           </p>
-          <button className="btn-ai-learn">Learn more</button>
+          
         </div>
 
         {/* SMARTPHONE Y CHAT */}

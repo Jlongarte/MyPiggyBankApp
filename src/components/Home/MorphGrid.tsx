@@ -1,88 +1,70 @@
-import { motion, MotionValue } from "framer-motion";
+
 
 interface Props {
-  progress: number; // Mantenemos tu hook de progreso actual
+  progress: number;
 }
 
 const MorphGrid: React.FC<Props> = ({ progress }) => {
-  // Transformaciones dramáticas basadas en el scroll (progress de 0 a 1)
+  const entryX = (1 - progress) * 220; 
+  const entryY = (1 - progress) * 260;
   
-  // Las tarjetas laterales entran desde los extremos con un giro y desplazamiento elegante
-  const leftCardX = (1 - progress) * -180;
-  const rightCardX = (1 - progress) * 180;
-  const cardsOpacity = progress > 0.15 ? (progress - 0.15) * 1.4 : 0;
-
-  // Efecto de expansión dramática de la tarjeta central (simulando salir del frame)
-  const centerWidth = 280 + progress * 100; // Pasa de estrecha (tipo móvil) a ancha
-  const centerHeight = 400 + progress * 120;
-  const centerScale = 0.75 + progress * 0.25;
+  const centerOpacity = progress > 0.05 ? Math.min(1, (progress - 0.05) * 2) : 0;
+  const sidesOpacity = progress > 0.3 ? (progress - 0.3) * 1.8 : 0;
 
   return (
-    <div className="cards-grid-wrapper" style={{ opacity: cardsOpacity }}>
+    <div className="morph-grid-section" style={{ opacity: centerOpacity }}>
       
-      {/* Tarjeta Izquierda */}
-      <div 
-        className="side-card left-card" 
-        style={{
-          transform: `translateX(${leftCardX}px) translateY(${(1 - progress) * 40}px) scale(${0.85 + progress * 0.15})`,
-          opacity: cardsOpacity
-        }}
-      >
-        <div className="card-inner-content">
-          <span className="card-category">Personal · EUR</span>
-          <h3 className="card-amount">€3,126</h3>
-          <span className="card-badge">Accounts</span>
-        </div>
+      {/* Texto superior y botón */}
+      <div className="morph-header-content">
+        <h2 className="second-title counter-title">
+          Your salary, reimagined
+        </h2>
+        <p className="morph-subtitle">
+          Spend smartly, send quickly, sort your salary automatically, and watch your savings grow — all with a PiggyBank account.
+        </p>
+        <button className="morph-action-btn">
+          Move your salary
+        </button>
       </div>
 
-      {/* Tarjeta Central (Efecto expansión tipo app de Revolut) */}
-      <div 
-        className="center-card-morph" 
-        style={{
-          width: `${centerWidth}px`,
-          height: `${centerHeight}px`,
-          transform: `scale(${centerScale})`,
-          borderRadius: `${12 + progress * 16}px`,
-          boxShadow: progress > 0.4 ? "0 30px 60px rgba(0, 0, 0, 0.3)" : "0 10px 20px rgba(0,0,0,0.1)"
-        }}
-      >
-        <div className="morph-bg-image"></div>
-        <div className="morph-card-content" style={{ padding: progress > 0.7 ? "32px 24px" : "16px" }}>
-          <span className="card-category">Personal</span>
-          <h3 className="card-amount" style={{ fontSize: progress > 0.7 ? "2.2rem" : "2.8rem" }}>£6,012</h3>
-          <span className="card-badge">Accounts</span>
-          
-          <div 
-            className="card-footer-item center-footer" 
-            style={{ 
-              opacity: progress > 0.6 ? (progress - 0.6) * 2.5 : 0,
-              transform: `translateY(${(1 - progress) * 20}px)`
-            }}
-          >
-            <div className="footer-icon wallet">🔒</div>
-            <div>
-              <p className="footer-title">PROTECTED</p>
-              <span className="positive">SWITCH GUARANTEE</span>
-            </div>
-          </div>
+      {/* Contenedor de las 3 imágenes */}
+      <div className="morph-cards-container">
+        
+        {/* Tarjeta 1: Café (Izquierda) */}
+        <div 
+          className="morph-card side-card-left"
+          style={{
+            transform: `translateX(${(1 - progress) * -180}px) translateY(${(1 - progress) * 60}px) scale(${0.75 + progress * 0.15})`,
+            opacity: sidesOpacity
+          }}
+        >
+          <img src="./coffee.webp" alt="Coffee" className="morph-card-img" />
         </div>
-      </div>
 
-      {/* Tarjeta Derecha */}
-      <div 
-        className="side-card right-card" 
-        style={{
-          transform: `translateX(${rightCardX}px) translateY(${(1 - progress) * 40}px) scale(${0.85 + progress * 0.15})`,
-          opacity: cardsOpacity
-        }}
-      >
-        <div className="card-inner-content">
-          <span className="card-category">Personal</span>
-          <h3 className="card-amount">£2,350</h3>
-          <span className="card-badge">Accounts</span>
+        {/* Tarjeta 2: Chica (Centro - Protagonista) */}
+        <div 
+          className="morph-card center-card-hero"
+          style={{
+            transform: `translate(${entryX}px, ${entryY}px) scale(${0.65 + progress * 0.35})`,
+            width: `${300 + progress * 40}px`,
+            height: `${460 + progress * 20}px`
+          }}
+        >
+          <img src="./girl.webp" alt="Girl" className="morph-card-img" />
         </div>
-      </div>
 
+        {/* Tarjeta 3: Man (Derecha) */}
+        <div 
+          className="morph-card side-card-right"
+          style={{
+            transform: `translateX(${(1 - progress) * 180}px) translateY(${(1 - progress) * 60}px) scale(${0.75 + progress * 0.15})`,
+            opacity: sidesOpacity
+          }}
+        >
+          <img src="./man.webp" alt="Man" className="morph-card-img" />
+        </div>
+
+      </div>
     </div>
   );
 };

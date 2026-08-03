@@ -45,7 +45,7 @@ const StocksSection: React.FC<StocksSectionProps> = ({
         
         {/* TEXTO SUPERIOR (ESTILO MODO OSCURO DE REVOLUT) */}
         <div className="stocks-top-content">
-          <h2 className="stocks-title">
+          <h2 className="second-title">
             Explore 5,000+ stocks and ETFs
           </h2>
           <p className="stocks-subtitle">

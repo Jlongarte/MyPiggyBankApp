@@ -19,10 +19,10 @@ const UserCounterSection: React.FC = () => {
           const animate = (currentTime: number) => {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            
+
             // Función de desaceleración (Ease Out) para que frene elegantemente al final
             const easeProgress = 1 - Math.pow(1 - progress, 3);
-            
+
             const currentCount = Math.floor(easeProgress * end);
             setCount(currentCount);
 
@@ -47,30 +47,54 @@ const UserCounterSection: React.FC = () => {
   return (
     <section className="pb-counter-section" ref={sectionRef}>
       <div className="counter-container">
-        
         {/* TITULAR PRINCIPAL CON CONTADOR DINÁMICO */}
-        
-        <h2 className="counter-main-title">
-          Únete a los más de <span className="blue-brand-number">{count}M+</span> de usuarios que ya confían en The Piggy Bank
-        <img src="/favicon.webp" alt="Logo de The Piggy Bank" className="counter-logo" />
-        </h2>
-        
-        <button className="btn-counter-download">Descarga la app</button>
 
-        {/* --- TEXTO LEGAL Y DISCLAIMER ADAPTADO  --- */}
+        <h2 className="second-title counter-title">
+          Join over <span className="blue-brand-number">{count}M+</span> users
+          who already trust
+        </h2>
+
+        <img
+          src="/logo2.webp"
+          alt="The Piggy Bank logo"
+          className="counter-logo"
+        />
+
+        <button className="btn-counter-download">Download the app</button>
+
+        {/* --- TEXTO LEGAL Y DISCLAIMER ADAPTADO --- */}
         <div className="counter-legal-box">
           <p className="legal-index-marker">1</p>
+
           <p>
-            La rentabilidad del 5% TAE (variable) es una oferta por tiempo limitado válida exclusivamente para nuevos clientes de The Piggy Bank. La promoción estará vigente para cuentas de Ahorro con Acceso Instantáneo abiertas en el periodo correspondiente de este año. Dicha tasa bonificada se aplicará sobre saldos aptos según condiciones de contratación. Al finalizar el periodo promocional, los tipos de interés se ajustarán a los planes estándar vigentes descritos en nuestra plataforma. Tarifas e impuestos aplicables según la legislación fiscal española vigente.
+            The 5% APY (variable) is a limited-time offer available exclusively
+            to new The Piggy Bank customers. The promotion applies only to
+            Instant Access Savings Accounts opened during the eligible period
+            this year. The promotional rate applies to qualifying balances
+            subject to the account terms and conditions. Once the promotional
+            period ends, interest rates will revert to the standard rates
+            available for your selected plan, as described on our platform.
+            Applicable taxes and fees are subject to local regulations.
           </p>
+
           <p>
-            SERVICIOS DE INVERSIÓN: Capital en riesgo. El valor de las inversiones puede tanto subir como bajar, y es posible que recupere menos de su inversión inicial o que pierda la totalidad de sus fondos. Las rentabilidades pasadas no constituyen un indicador fiable de resultados futuros. Las fluctuaciones en los tipos de cambio pueden afectar al rendimiento global de sus activos.
+            INVESTMENT SERVICES: Your capital is at risk. The value of
+            investments can go down as well as up, and you may receive back less
+            than your original investment or lose it entirely. Past performance
+            is not a reliable indicator of future results. Exchange rate
+            fluctuations may also affect the overall return on your investments.
           </p>
+
           <p>
-            The Piggy Bank Ltd. ofrece exclusivamente servicios de ejecución pura para acciones y ETFs. No se proporciona asesoramiento financiero ni recomendaciones personalizadas. Como inversor independiente, debe tomar sus propias decisiones o buscar asesoramiento profesional cualificado si no está seguro de la idoneidad de alguna inversión para sus circunstancias o necesidades específicas. Consulte nuestros Términos de Negocio y Declaración de Riesgos antes de operar.
+            The Piggy Bank Ltd. provides execution-only services for stocks and
+            ETFs. We do not provide investment advice or personalized
+            recommendations. As an independent investor, you are responsible for
+            making your own investment decisions or seeking professional
+            financial advice if you are unsure whether an investment is suitable
+            for your personal circumstances. Please read our Terms of Business
+            and Risk Disclosure before investing.
           </p>
         </div>
-
       </div>
     </section>
   );

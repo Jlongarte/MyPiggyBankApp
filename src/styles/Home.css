@@ -2,11 +2,7 @@
    HOME & LANDING PAGE STYLES
    ========================================================================== */
 
-.home-scroll-container {
-  position: relative;
-  width: 100%;
-  background-color: #030a16;
-}
+
 
 .scroll-track {
   height: 200vh; /* Controla la duración del efecto sticky al hacer scroll */
@@ -31,16 +27,17 @@
 /* ================= CAPAS DE TEXTO ================= */
 .hero-text-layer {
   position: absolute;
-  top: 15%;
+  max-width: 620px;
+  top: 30%;
   left: 8%;
-  max-width: 480px;
+  
   z-index: 10;
   color: var(--color-text-light);
 }
 
 .hero-title {
-  font-size: 4.5rem;
-  font-weight: 700;
+  font-size: 5.5rem;
+  font-weight: 400;
   letter-spacing: -0.03em;
   margin: 0 0 20px 0;
   line-height: 1.05;
@@ -277,14 +274,7 @@
   z-index: 2; /* Asegura que el texto permanezca por encima de cualquier capa visual */
 }
 
-.security-title {
-  font-size: 3.8rem;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
-  margin: 0 0 32px 0;
-  color: var(--color-text-light, #ffffff);
-}
+
 
 .security-subtitle {
   font-size: 1.05rem;
@@ -446,12 +436,7 @@
   max-width: 720px;
 }
 
-.savings-title {
-  font-size: 3.2rem;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  margin: 0 0 12px 0;
-}
+
 
 .savings-subtitle {
   font-size: 1.1rem;
@@ -467,21 +452,8 @@
   margin-bottom: 16px;
 }
 
-.btn-explore-savings {
-  background-color: var(--color-bg-light);
-  color: var(--color-text-dark);
-  border: none;
-  padding: 14px 28px;
-  border-radius: var(--radius-pill);
-  font-weight: 600;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
 
-.btn-explore-savings:hover {
-  transform: scale(1.02);
-}
+
 
 .savings-glass-card {
   position: relative;
@@ -604,12 +576,7 @@
   padding-bottom: 20px;
 }
 
-.virtual-title {
-  font-size: 3.8rem;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  margin: 0 0 16px 0;
-}
+
 
 .virtual-subtitle {
   font-size: 1.1rem;
@@ -824,12 +791,7 @@
   z-index: 5;
 }
 
-.ai-title {
-  font-size: 4rem;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  margin: 0 0 16px 0;
-}
+
 
 .ai-subtitle {
   font-size: 1.15rem;
@@ -978,14 +940,7 @@
   margin-bottom: 40px;
 }
 
-.stocks-title {
-  font-size: 4rem;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  color: var(--color-text-light);
-  margin: 0 0 20px 0;
-  line-height: 1.05;
-}
+
 
 .stocks-subtitle {
   font-size: 1.15rem;
@@ -1062,8 +1017,12 @@
 }
 
 .counter-logo {
-  width: 85px;
-  height: 85px;
+  width: 485px;
+  height: auto;
+}
+
+.piggy {
+  font-weight: 600;
 }
 
 .counter-title-box {
@@ -1073,21 +1032,46 @@
   text-align: center;
 }
 
-.counter-main-title {
-  font-size: 4.5rem;
-  font-weight: 700;
+.second-title {
+  font-size: 3.5rem;
+  color: #fff;
+  font-weight: 400;
   letter-spacing: -0.04em;
   line-height: 1.05;
   text-align: center;
   max-width: 950px;
-  margin: 0 0 40px 0;
+  margin: 0 0 20px 0;
 }
 
+.security-title{
+font-size: 3.5rem;
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  text-align: left;
+  max-width: 950px;
+  margin: 0 0 20px 0;
+}
+.plans-title{
+  font-size: 3.5rem;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  text-align: left;
+  max-width: 950px;
+  margin: 0 0 40px 0;
+}
+.counter-title {
+color: #000;
+}
 .blue-brand-number {
   color: var(--color-primary);
   display: inline-block;
   min-width: 160px;
   font-variant-numeric: tabular-nums;
+  font-weight: 600;
 }
 
 .btn-counter-download {
@@ -1140,6 +1124,7 @@
   }
   .blue-brand-number {
     min-width: auto;
+    
   }
   .btn-counter-download {
     margin-bottom: 60px;
@@ -1160,12 +1145,7 @@
   max-width: 1160px;
 }
 
-.plans-main-title {
-  font-size: 3.8rem;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  margin: 0 0 48px 0;
-}
+
 
 .plans-grid {
   display: grid;
@@ -1450,7 +1430,7 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(rgba(3, 10, 22, 0.4), rgba(3, 10, 22, 0.6)), url('/hero.jpeg');
+  background-image:  url('/hero.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1461,30 +1441,11 @@
   overflow: hidden;
 }
 
-/* Capa de texto con efecto flotante */
-.hero-text-layer {
-  max-width: 520px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  z-index: 2;
-}
 
-.hero-title {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: #ffffff;
-  line-height: 1.1;
-  margin: 0;
-  letter-spacing: -0.03em;
-}
 
-.hero-subtitle {
-  font-size: 1.05rem;
-  color: #cbd5e1;
-  line-height: 1.5;
-  margin: 0;
-}
+
+
+
 
 .btn-download {
   background-color: #ffffff;
@@ -1502,6 +1463,93 @@
 .btn-download:hover {
   transform: scale(1.03);
   background-color: #f1f5f9;
+}
+/* Sección principal con separación inferior añadida para que no pegue con la siguiente sección */
+.morph-grid-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 32px;
+  padding-bottom: 120px; /* Espacio extra añadido para evitar que esté pegado */
+  box-sizing: border-box;
+}
+
+/* Cabecera de texto y botón */
+.morph-header-content {
+  text-align: center;
+  max-width: 700px;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.morph-subtitle {
+  font-size: 1.1rem;
+  color: #4b5563;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.morph-action-btn {
+  background: #111827;
+  color: #ffffff;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  fontWeight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.morph-action-btn:hover {
+  background: #1f2937;
+}
+
+/* Contenedor de las 3 tarjetas */
+.morph-cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Estilos base para todas las tarjetas */
+.morph-card {
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.morph-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Tarjetas laterales (Café y Man) */
+.side-card-left,
+.side-card-right {
+  width: 280px;
+  height: 420px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  filter: brightness(0.9);
+}
+
+/* Tarjeta central (Chica - Protagonista absoluta) */
+.center-card-hero {
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  border: 3px solid rgba(255, 255, 255, 0.4);
 }
 @media (max-width: 1024px) {
   .footer-menu-container { grid-template-columns: repeat(4, 1fr); gap: 32px 24px; }
